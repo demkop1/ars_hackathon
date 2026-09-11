@@ -12,8 +12,7 @@ def compute_cos_similarity(document_matrix, query_vector):
 
     return np.dot(norm_matrix, norm_embedding)
 
-def update_query(query_vector, like_vector, fac):
-
+def update_query(query_vector, like_vector, fac=0.9):
    new_query_vector = fac * query_vector + (1-fac) * like_vector
    return new_query_vector / np.linalg.norm(new_query_vector)
 
