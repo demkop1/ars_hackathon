@@ -13,6 +13,30 @@ from typing import Optional
 
 from app.models import RecommendationRequest
 
+import json
+import numpy as np
+from sentence_transformers import SentenceTransformer
+
+model = SentenceTransformer("Qwen/Qwen3-Embedding-0.6B")
+
+# embedding = model.encode(example_tags, prompt_name="query").flatten()
+
+# print("Opening Vector_Database.json...")
+# with open("Vector database/vector_database.json", "r", encoding="utf-8") as file:
+#     event_list = json.load(file)
+
+# matrix_list = []
+# for event in event_list:
+#     matrix_list.append(event["vector"])
+
+# matrix = np.array(matrix_list)
+
+# cos_sim = compute_cos_similarity(matrix, embedding)
+# top_indices = np.argsort(cos_sim)[::-1][:3]
+
+# for idx in top_indices:
+#     print(f"Match: {cos_sim[idx]:.4f} | {event_list[idx]['title']}")
+
 _MONTHS_DE = {
     "Januar": 1, "Februar": 2, "März": 3, "April": 4, "Mai": 5, "Juni": 6,
     "Juli": 7, "August": 8, "September": 9, "Oktober": 10, "November": 11, "Dezember": 12,
@@ -37,9 +61,15 @@ def _parse_sort_key(time_str: Optional[str]) -> str:
     return f"{int(year):04d}{month:02d}{int(day):02d} {int(hour):02d}{int(minute):02d}"
 
 
-def _score(event: dict, selected_categories: set[str]) -> int:
-    return 1 if event.get("category") in selected_categories else 0
+def _compute_cos_similarity(document_matrix, query_vector):
+    norm_matrix = document_matrix / np.linalg.norm(document_matrix, axis=1, keepdims=True)
+    norm_embedding = query_vector/np.linalg.norm(query_vector)
 
+    return np.dot(norm_matrix, norm_embedding)
+
+def update_query(query_vector, like_vector, fac=0.9):
+   new_query_vector = fac * query_vector + (1-fac) * like_vector
+   return new_query_vector / np.linalg.norm(new_query_vector)
 
 def generate_recommendations(
     events: list[dict],
