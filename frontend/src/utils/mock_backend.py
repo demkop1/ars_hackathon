@@ -1,25 +1,27 @@
-"""Simulated backend calls.
+"""Backend HTTP client for recommendations.
 
-There is no real API yet. This module is the single place that pretends to
-be one: it takes a moment (configurable), can be made to fail (configurable),
-and returns a ranked list of event ids. Replace the body of
-`generate_recommendations` with a real HTTP call when a backend exists --
-callers only depend on its signature, not its implementation.
+Delegates recommendation scoring to the FastAPI service (`POST /recommendations`).
+Catches connection and timeout errors and re-raises them as `RecommendationError`
+to preserve the existing retry and failure UI flow.
 """
 from __future__ import annotations
 
+import os
 import random
 import time
 from dataclasses import dataclass
 from typing import Literal
 
+import requests
+
 from src.types.models import Event, Preferences
 
 FailMode = Literal["off", "always_fail", "random"]
+BACKEND_URL = os.getenv("BACKEND_URL", "http://localhost:8000")
 
 
 class RecommendationError(RuntimeError):
-    """Raised when the (simulated) recommendation service fails."""
+    """Raised when the recommendation service fails or is unreachable."""
 
 
 @dataclass(frozen=True)
@@ -28,44 +30,49 @@ class RecommendationResult:
     matched_tag_count: dict[str, int]
 
 
-def _score(event: Event, selected_tags: set[str]) -> int:
-    return len(set(event.tags) & selected_tags)
-
-
 def generate_recommendations(
     events: list[Event],
     selected_tags: set[str],
     prefs: Preferences,
     *,
     fail_mode: FailMode = "off",
-    delay_seconds: float = 1.2,
+    delay_seconds: float = 0.0,
 ) -> RecommendationResult:
-    """Simulate an async ranking call against the (future) recommender backend."""
+    """Send recommendation request to the FastAPI backend service."""
     if delay_seconds > 0:
         time.sleep(delay_seconds)
 
+    # Preserve the sidebar's simulated failure toggle for demo / testing
     if fail_mode == "always_fail" or (fail_mode == "random" and random.random() < 0.5):
         raise RecommendationError(
             "The recommendation service timed out while scoring your interests. "
             "(Simulated failure -- toggle 'Simulate backend failure' off in the sidebar to stop seeing this.)"
         )
 
-    candidates = list(events)
-    if prefs.free_only:
-        candidates = [e for e in candidates if e.free_of_charge is True]
-    if prefs.family_only:
-        candidates = [e for e in candidates if e.suitable_for_children is True]
+    payload = {
+        "tags": list(selected_tags),
+        "free_only": prefs.free_only,
+        "family_only": prefs.family_only,
+        "sort_mode": prefs.sort_mode,
+    }
 
-    scored = [(e, _score(e, selected_tags)) for e in candidates]
-    scored = [(e, s) for e, s in scored if s > 0] or [(e, 0) for e in candidates]
-
-    if prefs.sort_mode == "soonest":
-        scored.sort(key=lambda pair: (pair[0].next_date or "9999", -pair[1]))
-    else:
-        scored.sort(key=lambda pair: (-pair[1], pair[0].next_date or "9999"))
-
-    matched_tag_count = {e.id: s for e, s in scored}
-    return RecommendationResult(
-        ranked_event_ids=[e.id for e, _ in scored],
-        matched_tag_count=matched_tag_count,
-    )
+    try:
+        response = requests.post(
+            f"{BACKEND_URL}/recommendations",
+            json=payload,
+            timeout=8,
+        )
+        response.raise_for_status()
+        data = response.json()
+        return RecommendationResult(
+            ranked_event_ids=data["ranked_event_ids"],
+            matched_tag_count=data["matched_tag_count"],
+        )
+    except requests.Timeout as exc:
+        raise RecommendationError(
+            "The recommendation service timed out. Please verify the backend is responsive."
+        ) from exc
+    except requests.RequestException as exc:
+        raise RecommendationError(
+            f"Could not reach recommendation backend at {BACKEND_URL}: {exc}"
+        ) from exc

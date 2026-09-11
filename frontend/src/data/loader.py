@@ -1,36 +1,42 @@
-"""Static mock-data loaders.
+"""Data loaders backed by the FastAPI service.
 
-The events/tags bundled here are a real, trimmed snapshot of the City of
-Linz's public events feed (`Linztermine.json`, see ../../../data at the repo
-root) frozen into JSON so this frontend has no live dependency. Swap these
-loaders for real API calls once a backend exists -- everything downstream
-(ranking, session state, UI) already consumes plain `Event`/`TagInfo`
-objects and does not care where they came from.
+Fetches events and tags from the backend HTTP API, parsing them into
+plain Event and TagInfo objects. Streamlit caching is set with a TTL so
+updates from the backend are periodically reflected without requiring a restart.
 """
 from __future__ import annotations
 
-import json
-from pathlib import Path
-
+import os
+import requests
 import streamlit as st
 
 from src.types.models import Event, TagInfo
 
-_DATA_DIR = Path(__file__).parent
+BACKEND_URL = os.getenv("BACKEND_URL", "http://localhost:8000")
 
 
-@st.cache_data(show_spinner=False)
+@st.cache_data(show_spinner=False, ttl=600)
 def load_events() -> list[Event]:
-    with open(_DATA_DIR / "events.json", encoding="utf-8") as f:
-        raw = json.load(f)
-    return [Event.from_dict(r) for r in raw]
+    try:
+        response = requests.get(f"{BACKEND_URL}/events", timeout=5)
+        response.raise_for_status()
+        raw = response.json()
+        return [Event.from_dict(r) for r in raw]
+    except requests.RequestException as exc:
+        st.error(f"Failed to load events from backend ({BACKEND_URL}): {exc}")
+        return []
 
 
-@st.cache_data(show_spinner=False)
+@st.cache_data(show_spinner=False, ttl=600)
 def load_tags() -> list[TagInfo]:
-    with open(_DATA_DIR / "tags.json", encoding="utf-8") as f:
-        raw = json.load(f)
-    return [TagInfo(name=r["name"], event_count=r["event_count"]) for r in raw]
+    try:
+        response = requests.get(f"{BACKEND_URL}/tags", timeout=5)
+        response.raise_for_status()
+        raw = response.json()
+        return [TagInfo(name=r["name"], event_count=r["event_count"]) for r in raw]
+    except requests.RequestException as exc:
+        st.error(f"Failed to load tags from backend ({BACKEND_URL}): {exc}")
+        return []
 
 
 def events_by_id() -> dict[str, Event]:
