@@ -1,22 +1,33 @@
 from __future__ import annotations
 
+import re
 from datetime import datetime
+from typing import Optional
+
+_MONTHS_DE = {
+    "Januar": 1, "Februar": 2, "März": 3, "April": 4, "Mai": 5, "Juni": 6,
+    "Juli": 7, "August": 8, "September": 9, "Oktober": 10, "November": 11, "Dezember": 12,
+}
+_TIME_RE = re.compile(r"(\d+)\.\s+(\w+)\s+(\d{4})\s+(\d{1,2}):(\d{2})")
 
 
-def format_event_date(iso_str: str | None) -> str:
-    """'2026-09-12T18:00:00+02:00' -> 'Sat, 12 Sep · 18:00'."""
-    if not iso_str:
-        return "Date to be announced"
+def parse_event_datetime(time_str: Optional[str]) -> Optional[datetime]:
+    """'9. September 2026 15:15 (MESZ) -> 16:15' -> datetime(2026, 9, 9, 15, 15).
+
+    prepared_cards.json's `time` field is already display-ready (used as-is
+    in the UI), so this exists only to get a sortable value out of it for
+    "Soonest date" sorting -- not for reformatting what's shown to the user.
+    """
+    if not time_str:
+        return None
+    match = _TIME_RE.match(time_str)
+    if not match:
+        return None
+    day, month_name, year, hour, minute = match.groups()
+    month = _MONTHS_DE.get(month_name)
+    if month is None:
+        return None
     try:
-        dt = datetime.fromisoformat(iso_str)
+        return datetime(int(year), month, int(day), int(hour), int(minute))
     except ValueError:
-        return iso_str
-    return dt.strftime("%a, %d %b · %H:%M")
-
-
-def format_relative_hint(occurrence_count: int) -> str:
-    if occurrence_count <= 0:
-        return "One-time event"
-    if occurrence_count == 1:
-        return "1 upcoming date"
-    return f"{occurrence_count} upcoming dates"
+        return None

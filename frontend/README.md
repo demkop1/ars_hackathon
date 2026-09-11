@@ -1,10 +1,10 @@
-# Linz Event Recommender -- Frontend Template
+# Linz Event Recommender -- Frontend
 
 A Streamlit frontend for a Tinder-style event recommender: pick a few
-interests, swipe through a ranked deck of Linz events, save the ones worth
-your evening. **There is no backend yet** -- this is a fully working,
-click-through template with realistic mocked data and a simulated backend
-call, built so a real API can be dropped in later without touching the UI.
+interests, swipe through a ranked deck of Ars Electronica Festival 2026
+events, save the ones worth your time. **It's wired to a real backend** --
+see `backend/` -- which must be running (`http://localhost:8000` by
+default) for this to have data to show.
 
 ## Purpose
 
@@ -47,40 +47,31 @@ the following were product-design calls, made explicit here rather than
 left implicit in code:
 
 - **"Pick tags & preferences"** (the Interest selection subtitle) was read
-  as two things: a multi-select tag picker, *and* a small preferences
-  block (Free events only / Family-friendly only / sort order) applied on
-  top of it.
+  as two things: a multi-select category picker, *and* a small preferences
+  block (Curated highlights only / sort order) applied on top of it. It's
+  one toggle, not two, because that's what the real data actually supports
+  -- see below.
 - **Minimum 3 tags** required before continuing -- arbitrary but standard
   for this kind of onboarding; too few tags makes "ranking" meaningless.
-- **Ranking heuristic**: score = number of selected tags an event shares,
-  tie-broken by date (or sorted purely by date if "Soonest first" is
-  chosen). If preference filters (free/family) eliminate every match, all
-  remaining candidates are kept at score 0 rather than showing nothing, so
-  users only see a truly empty deck when their filters exclude *every*
-  event outright.
+- **Ranking heuristic**: an event scores 1 if its `category` is among the
+  selected tags, 0 otherwise (each card has exactly one category, not a
+  list, so this isn't an overlap count). If every candidate scores 0, all
+  are kept at score 0 rather than showing nothing, so users only see a
+  truly empty deck when the "Curated highlights only" filter excludes
+  *every* remaining event.
 - **The "ranked card stack"** implies a ranking step happens somewhere
   before swiping starts. There's no dedicated SVG node for it, so it's
-  modeled as its own pipeline stage (`generating`) with a simulated,
-  interruptible backend call -- this is where loading/failure/retry states
-  live (see "Backend simulation" below).
-- **Event data** is a real, trimmed static snapshot of the City of Linz's
-  public events feed (`Linztermine.json`, see `../data` at the repo root),
-  frozen into `src/data/events.json` / `tags.json` so the frontend has no
-  live dependency. 70 events, 15 tag categories, all sourced from actual
-  listings (titles, descriptions, locations, organizers, dates).
-- **Ticket/booking links**: the source data has organizer links, but
-  there's no backend to resolve or proxy them yet, so the detail screen
-  says so explicitly rather than linking to a dead end.
-
-## Backend simulation
-
-`src/utils/mock_backend.py` is the one function standing in for a real API
-(`generate_recommendations`). It's synchronous, takes a configurable delay,
-and can be told to fail (always, or ~50% randomly) via a **Backend
-simulation (dev)** panel in the sidebar -- this is how the app demonstrates
-loading, failure and retry states honestly, without a real backend to
-misbehave on cue. Swap its body for an HTTP call when one exists; nothing
-else needs to change, since every caller only depends on its signature.
+  modeled as its own pipeline stage (`generating`) with a real, interruptible
+  backend call -- this is where loading/failure/retry states live, now
+  driven by genuine network failures rather than a simulated toggle.
+- **Event data** is `data/prepared_cards.json` at the repo root -- 383 real
+  Ars Electronica Festival 2026 event cards, served live by `backend/`.
+  Each card has exactly one `category` (used as the "tag"), a `highlight`
+  flag, and a `location` with venue/area/coordinates -- no organizer,
+  price, or child-friendly data exists in this dataset, so the UI doesn't
+  claim to filter on things it can't actually know.
+- **Ticket/booking links**: not present in this dataset at all, so the
+  detail screen doesn't pretend to offer one.
 
 ## Architecture
 
@@ -91,14 +82,14 @@ frontend/
   .streamlit/config.toml    theme
   assets/workflow.svg       the source SVG (metadata-stripped), reference view only
   src/
-    types/models.py         Event, TagInfo, StageInfo, Screen/StageStatus literals
+    types/models.py         Event, EventLocation, TagInfo, StageInfo, Screen/StageStatus literals
     data/
-      events.json, tags.json   static mock dataset (real Linz events)
-      loader.py              cached loaders -> list[Event] / list[TagInfo]
+      loader.py              fetches from backend/, cached (ttl) -> list[Event] / list[TagInfo]
     utils/
-      mock_backend.py        simulated backend call (ranking + fail/delay controls)
-      formatting.py          date/occurrence formatting
-      icons.py                tag -> emoji, status -> color/icon lookup tables
+      backend_client.py      shared BACKEND_URL / timeout config
+      mock_backend.py        POST /recommendations client (name predates the real backend)
+      formatting.py          parses prepared_cards.json's German date strings for sorting
+      icons.py                category -> emoji, status -> color/icon lookup tables
     hooks/
       state.py                session-state schema, screen transitions, swipe/undo,
                                pipeline status derivation -- the single source of truth
@@ -127,15 +118,19 @@ the live widget keys.
 
 ## Running it
 
+Start the backend first (see `backend/README.md`), then:
+
 ```bash
 cd frontend
 pip install -r requirements.txt
 streamlit run app.py
 ```
 
-Tested against `streamlit==1.59.1`. The app was built and verified end-to-end
-with Streamlit's `AppTest` harness (landing -> interests -> generation
-success/failure/retry -> swipe/undo/save/skip -> detail -> saved -> reset,
-all exercised programmatically) plus a manual pass in a real browser, so the
-full workflow is confirmed completable through the UI, including its edge
-states (empty deck, deck exhausted, generation failure).
+Override the backend's address with the `BACKEND_URL` env var if it's not
+on `http://localhost:8000`.
+
+Tested against `streamlit==1.59.1`. The full workflow (landing -> interests
+-> generation success/retry -> swipe/undo/save/skip -> detail -> saved ->
+reset) has been verified end-to-end with Streamlit's `AppTest` harness
+against a *live* backend instance serving real `prepared_cards.json` data,
+plus a manual pass in a real browser.

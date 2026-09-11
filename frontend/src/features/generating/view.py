@@ -19,8 +19,7 @@ def render(ss: AppState) -> None:
     elif ss.gen_status == "in_progress":
         selected = list(ss.confirmed_tags or [])
         prefs = Preferences(
-            free_only=ss.confirmed_free_only,
-            family_only=ss.confirmed_family_only,
+            highlights_only=ss.confirmed_highlights_only,
             sort_mode=ss.confirmed_sort_mode,
         )
         with st.spinner(f"Matching events to your {len(selected)} interests…"):

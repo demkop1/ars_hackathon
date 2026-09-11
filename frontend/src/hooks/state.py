@@ -19,8 +19,7 @@ MIN_TAGS_REQUIRED = 3
 _DEFAULTS = {
     "screen": "landing",
     "selected_tags": [],
-    "pref_free_only": False,
-    "pref_family_only": False,
+    "pref_highlights_only": False,
     "pref_sort_mode": "best_match",  # best_match | soonest
     # Snapshots of the above, taken the moment "Continue" is clicked on the
     # Interests screen. Streamlit clears a widget-bound session_state value
@@ -29,8 +28,7 @@ _DEFAULTS = {
     # the deck, sidebar summaries -- must read these stable copies instead of
     # the live `selected_tags`/`pref_*` widget keys.
     "confirmed_tags": [],
-    "confirmed_free_only": False,
-    "confirmed_family_only": False,
+    "confirmed_highlights_only": False,
     "confirmed_sort_mode": "best_match",
     "gen_status": "not_started",  # not_started | in_progress | completed | failed
     "gen_error": None,
@@ -42,8 +40,8 @@ _DEFAULTS = {
     "history": [],  # list[{"event_id", "action"}] for Undo
     "detail_event_id": None,
     "detail_from": "discover",
-    "sim_fail_mode": "off",  # off | always_fail | random
-    "sim_delay": 1.2,
+    "sim_fail_mode": "off",  # off | always_fail | random -- no UI to change this anymore, kept for generate_recommendations()'s signature
+    "sim_delay": 0.0,
     "show_overview": False,
 }
 

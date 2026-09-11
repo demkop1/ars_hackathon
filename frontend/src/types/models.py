@@ -48,44 +48,64 @@ class StageInfo:
 
 
 @dataclass(frozen=True)
+class EventLocation:
+    venue: str
+    area: str
+    lat: Optional[float]
+    lng: Optional[float]
+    services: Optional[str]
+
+    @staticmethod
+    def from_dict(raw: dict) -> "EventLocation":
+        return EventLocation(
+            venue=raw.get("venue") or "Venue TBA",
+            area=raw.get("area") or "",
+            lat=raw.get("lat"),
+            lng=raw.get("lng"),
+            services=raw.get("services"),
+        )
+
+
+@dataclass(frozen=True)
 class Event:
+    """Mirrors a record in data/prepared_cards.json -- one card per festival event."""
+
     id: str
     title: str
-    description: str
-    tags: tuple[str, ...]
-    location_name: str
-    organizer_name: str
-    free_of_charge: Optional[bool]
-    suitable_for_children: Optional[bool]
-    next_date: Optional[str]
-    occurrence_count: int
+    category: str
+    highlight: bool
+    time: str  # already a display-ready string, e.g. "9. September 2026 15:15 (MESZ) -> 16:15"
+    location: EventLocation
+    preview_text: str
+    full_desc: str
+    embedding_input: str
 
     @staticmethod
     def from_dict(raw: dict) -> "Event":
         return Event(
             id=raw["id"],
             title=raw["title"],
-            description=raw["description"],
-            tags=tuple(raw.get("tags", [])),
-            location_name=raw.get("location_name", "Location TBA"),
-            organizer_name=raw.get("organizer_name", "Unknown organizer"),
-            free_of_charge=raw.get("free_of_charge"),
-            suitable_for_children=raw.get("suitable_for_children"),
-            next_date=raw.get("next_date"),
-            occurrence_count=int(raw.get("occurrence_count", 0)),
+            category=raw.get("category") or "Uncategorized",
+            highlight=bool(raw.get("highlight", False)),
+            time=raw.get("time") or "Date to be announced",
+            location=EventLocation.from_dict(raw.get("location") or {}),
+            preview_text=raw.get("preview_text") or "",
+            full_desc=raw.get("full_desc") or "",
+            embedding_input=raw.get("embedding_input") or "",
         )
 
 
 @dataclass(frozen=True)
 class TagInfo:
+    """A distinct `category` value from prepared_cards.json, with how many cards have it."""
+
     name: str
     event_count: int
 
 
 @dataclass
 class Preferences:
-    free_only: bool = False
-    family_only: bool = False
+    highlights_only: bool = False
     sort_mode: Literal["best_match", "soonest"] = "best_match"
 
 

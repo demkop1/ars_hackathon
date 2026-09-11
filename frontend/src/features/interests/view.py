@@ -39,11 +39,7 @@ def render(ss: AppState) -> None:
     st.write("")
     st.markdown("#### Preferences")
     st.caption("Optional filters applied on top of your interests.")
-    col1, col2 = st.columns(2)
-    with col1:
-        st.toggle("Free events only", key="pref_free_only")
-    with col2:
-        st.toggle("Family-friendly only", key="pref_family_only")
+    st.toggle("Curated highlights only", key="pref_highlights_only")
 
     st.radio(
         "Sort deck by",
@@ -68,7 +64,6 @@ def render(ss: AppState) -> None:
             # Snapshot into stable keys -- see the comment on confirmed_* in
             # hooks/state.py for why this can't just be read back later.
             ss.confirmed_tags = list(selected or [])
-            ss.confirmed_free_only = ss.pref_free_only
-            ss.confirmed_family_only = ss.pref_family_only
+            ss.confirmed_highlights_only = ss.pref_highlights_only
             ss.confirmed_sort_mode = ss.pref_sort_mode
             go_to("generating")

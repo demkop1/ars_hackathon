@@ -1,29 +1,33 @@
-"""In-memory data store.
+"""In-memory data store, loaded once at startup from data/prepared_cards.json.
 
-The dataset is small and mostly static (a trimmed snapshot of Linz events),
-so it's loaded once into memory at startup rather than through a database.
-Swap `_load()` for a real data source later (the full `data/Linztermine.json`
-or `data/notion_export.json` at the repo root, or a DB) -- everything else
-in this service only depends on `get_events()` / `get_tags()` returning
-plain dicts shaped like `EventOut` / `TagOut`.
+That file (repo root, not a copy under this package) is the real, current
+dataset -- 383 Ars Electronica Festival 2026 event cards. Loaded once into
+memory since it's small and static; swap `_load()` for a real data source
+later without touching anything downstream, which only depends on
+`get_events()` / `get_tags()` returning plain dicts shaped like
+`EventOut` / `TagOut`.
 """
 from __future__ import annotations
 
 import json
+from collections import Counter
 from pathlib import Path
 from typing import Optional
 
-_DATA_DIR = Path(__file__).parent / "data"
+_DATA_PATH = Path(__file__).parent.parent.parent / "data" / "prepared_cards.json"
 
 
-def _load(filename: str) -> list[dict]:
-    with open(_DATA_DIR / filename, encoding="utf-8") as f:
+def _load() -> list[dict]:
+    with open(_DATA_PATH, encoding="utf-8") as f:
         return json.load(f)
 
 
-_EVENTS: list[dict] = _load("events.json")
-_TAGS: list[dict] = _load("tags.json")
+_EVENTS: list[dict] = _load()
 _EVENTS_BY_ID: dict[str, dict] = {e["id"]: e for e in _EVENTS}
+_TAGS: list[dict] = [
+    {"name": name, "event_count": count}
+    for name, count in Counter(e["category"] for e in _EVENTS).most_common()
+]
 
 
 def get_events() -> list[dict]:

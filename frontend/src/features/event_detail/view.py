@@ -48,8 +48,6 @@ def render(ss: AppState) -> None:
                 close_detail(ss)
 
     st.caption(
-        "Ticket / booking links aren't wired up yet -- this view renders whatever "
-        "a future backend returns for an event.",
-        help="Template note: the source dataset has organizer links, but no backend "
-        "exists yet to resolve or proxy them.",
+        "Full description above is from the festival's own event card -- "
+        "there's no separate ticket/booking link in this dataset.",
     )

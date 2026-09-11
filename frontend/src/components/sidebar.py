@@ -64,24 +64,6 @@ def render_sidebar(ss: AppState) -> None:
 
         st.checkbox("📄 Workflow diagram (reference)", key="show_overview")
 
-        with st.expander("⚙️ Backend simulation (dev)"):
-            st.caption(
-                "There's no real backend yet -- these controls only affect the "
-                "mocked 'Curating your deck' step, so you can see loading, "
-                "failure and retry states without wiring up an API."
-            )
-            st.radio(
-                "Simulated response",
-                options=["off", "always_fail", "random"],
-                format_func=lambda v: {
-                    "off": "Always succeed",
-                    "always_fail": "Always fail",
-                    "random": "Randomly fail (~50%)",
-                }[v],
-                key="sim_fail_mode",
-            )
-            st.slider("Simulated latency (s)", 0.0, 3.0, key="sim_delay", step=0.1)
-
         if st.button("↺ Reset workflow", use_container_width=True):
             reset_workflow()
 

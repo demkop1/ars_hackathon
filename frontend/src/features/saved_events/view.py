@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from datetime import datetime
+
 import streamlit as st
 
 from src.components.empty_state import render_empty_state
@@ -7,6 +9,7 @@ from src.components.event_card import render_event_card
 from src.components.hub_tabs import render_hub_tabs
 from src.data.loader import events_by_id
 from src.hooks.state import AppState, go_to, open_detail, remove_saved
+from src.utils.formatting import parse_event_datetime
 
 
 def render(ss: AppState) -> None:
@@ -33,7 +36,7 @@ def render(ss: AppState) -> None:
     )
     ids = list(ss.liked_ids)
     if sort_mode == "Soonest date":
-        ids.sort(key=lambda i: events[i].next_date or "9999")
+        ids.sort(key=lambda i: parse_event_datetime(events[i].time) or datetime.max)
 
     st.caption(f"{len(ids)} saved event{'s' if len(ids) != 1 else ''}")
 

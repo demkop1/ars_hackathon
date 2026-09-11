@@ -5,7 +5,6 @@ from typing import Literal, Optional
 import streamlit as st
 
 from src.types.models import Event
-from src.utils.formatting import format_event_date, format_relative_hint
 from src.utils.icons import tag_icon
 from src.components.tag_pill import tag_pills_html
 
@@ -19,15 +18,10 @@ def _badge(label: str, bg: str, fg: str) -> str:
     )
 
 
-def _price_family_badges(event: Event) -> str:
-    parts = []
-    if event.free_of_charge is True:
-        parts.append(_badge("FREE", "#E1F5EE", "#0F6E56"))
-    elif event.free_of_charge is False:
-        parts.append(_badge("PAID", "#F1F1EF", "#5B5952"))
-    if event.suitable_for_children is True:
-        parts.append(_badge("FAMILY-FRIENDLY", "#EEEDFE", "#534AB7"))
-    return "".join(f'<span style="margin-right:6px;">{p}</span>' for p in parts)
+def _highlight_badge(event: Event) -> str:
+    if not event.highlight:
+        return ""
+    return f'<span style="margin-right:6px;">{_badge("★ CURATOR PICK", "#FFF4E0", "#95590A")}</span>'
 
 
 def render_event_card(
@@ -36,29 +30,27 @@ def render_event_card(
     variant: CardVariant = "swipe",
     match_count: Optional[int] = None,
 ) -> None:
-    icon = tag_icon(event.tags[0]) if event.tags else "🎫"
-    date_str = format_event_date(event.next_date)
-    occurrence_hint = format_relative_hint(event.occurrence_count)
+    icon = tag_icon(event.category)
 
     if variant == "compact":
         desc = ""
-        max_tags = 3
     elif variant == "detail":
-        desc = event.description
-        max_tags = len(event.tags)
+        desc = event.full_desc
     else:  # swipe
-        desc = event.description[:220] + ("…" if len(event.description) > 220 else "")
-        max_tags = 6
+        desc = event.preview_text
 
     match_html = ""
     if match_count is not None and match_count > 0:
         match_html = (
             f'<div style="margin-top:8px;font-size:12px;color:#0F6E56;font-weight:600;">'
-            f"🎯 Matches {match_count} of your interests</div>"
+            f"🎯 Matches your interests</div>"
         )
 
     pad = "14px 16px" if variant == "compact" else "22px 24px"
     title_size = "16px" if variant == "compact" else "22px"
+    location_line = event.location.venue
+    if event.location.area:
+        location_line += f" ({event.location.area})"
 
     html = f"""
 <div style="background:#FFFFFF;border:1px solid #E7E5DC;border-radius:16px;padding:{pad};
@@ -68,14 +60,14 @@ def render_event_card(
          display:flex;align-items:center;justify-content:center;font-size:22px;">{icon}</div>
     <div style="flex:1;min-width:0;">
       <div style="font-size:{title_size};font-weight:700;color:#1F1E1A;line-height:1.3;">{event.title}</div>
-      <div style="font-size:13px;color:#7A7871;margin-top:2px;">📅 {date_str} &nbsp;·&nbsp; 📍 {event.location_name}</div>
+      <div style="font-size:13px;color:#7A7871;margin-top:2px;">📅 {event.time} &nbsp;·&nbsp; 📍 {location_line}</div>
     </div>
   </div>
-  <div style="margin-top:12px;">{_price_family_badges(event)}</div>
+  <div style="margin-top:12px;">{_highlight_badge(event)}</div>
   {f'<div style="margin-top:12px;font-size:14px;line-height:1.55;color:#3A3833;">{desc}</div>' if desc else ""}
-  {f'<div style="margin-top:12px;">{tag_pills_html(list(event.tags[:max_tags]))}</div>' if event.tags else ""}
+  <div style="margin-top:12px;">{tag_pills_html([event.category])}</div>
   {match_html}
-  {f'<div style="margin-top:10px;font-size:12px;color:#9A978C;">🗓️ {occurrence_hint} &nbsp;·&nbsp; Hosted by {event.organizer_name}</div>' if variant != "compact" else ""}
+  {f'<div style="margin-top:10px;font-size:12px;color:#9A978C;">🛎️ {event.location.services}</div>' if variant != "compact" and event.location.services else ""}
 </div>
 """
     st.markdown(html, unsafe_allow_html=True)

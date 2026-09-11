@@ -51,8 +51,7 @@ def generate_recommendations(
 
     payload = {
         "tags": list(selected_tags),
-        "free_only": prefs.free_only,
-        "family_only": prefs.family_only,
+        "highlights_only": prefs.highlights_only,
         "sort_mode": prefs.sort_mode,
     }
 
