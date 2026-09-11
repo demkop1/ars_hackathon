@@ -1,0 +1,991 @@
+[
+  {
+    "id": "715782",
+    "title": "Escape Rooms bei Masters Of Escape",
+    "description": "Die Mission ist simpel: Ihr seid in einem Raum eingeschlossen, mit dem Ziel innerhalb der vorgegebenen Zeit zu entkommen. Jedoch befindet ihr euch in einer anderen Welt, deren Geschichte und Geheimnisse ihr erst erkunden müsst! Nur mit Geschick und Kreativität könnt ihr alle Rätsel und Aufgaben meistern und in der…",
+    "tags": [
+      "Spiel & Spaß"
+    ],
+    "location_name": "Escape Room Linz: Masters Of Escape",
+    "organizer_name": "Escape Room Linz: Masters Of Escape",
+    "free_of_charge": false,
+    "suitable_for_children": true,
+    "next_date": "2026-09-05T00:00:00+02:00",
+    "occurrence_count": 8
+  },
+  {
+    "id": "701685",
+    "title": "Kuriositäten-Flohmarkt",
+    "description": "Jeden Samstag tummeln sich zahlreiche Schau- und Kauflustige am Linzer Flohmarkt. Der Flohmarkt am Linzer Hauptplatz ist durch sein vielfältiges Angebot an diversen Altwaren bekannt und beliebt. In der Winterzeit, vom 10. November bis Ende Februar, und bei Großveranstaltungen am Hauptplatz im Sommer findet der Linzer…",
+    "tags": [
+      "Märkte & Messen"
+    ],
+    "location_name": "Hauptplatz",
+    "organizer_name": "Stadt Linz",
+    "free_of_charge": true,
+    "suitable_for_children": false,
+    "next_date": "2026-09-05T06:00:00+02:00",
+    "occurrence_count": 2
+  },
+  {
+    "id": "701021",
+    "title": "Markt Oed | LINZER GENUSS MÄRKTE",
+    "description": "Seit Mitte Februar 2021 hat dieser liebenswerte LINZER GENUSS MARKT seinen neuen Platz gefunden. Mitten im neu gestalteten und entstandenen \"Forum Oed\". Mit einer idealen Lage inmitten von Wohnungen und Büros kann dieser Nahversorger punkten. Bisher gab es einen Bäcker, saisonales Gemüse und Obst sowie veredelte…",
+    "tags": [
+      "Märkte & Messen"
+    ],
+    "location_name": "Markt Oed",
+    "organizer_name": "Linzer Märkte",
+    "free_of_charge": false,
+    "suitable_for_children": true,
+    "next_date": "2026-09-05T06:00:00+02:00",
+    "occurrence_count": 2
+  },
+  {
+    "id": "701025",
+    "title": "Markt Dornach Auhof | LINZER GENUSS MÄRKTE",
+    "description": "Dieser charmante Markt liegt eingebettet zwischen dem Volkshaus Dornach-Auhof und der Pfarre Heiliger Geist. Als einer der wenigen überdachten LINZER GENUSS MÄRKTE lässt es sich hier, egal ob Regen, Schnee oder Sonnenschein, ausgezeichnet einkaufen. Dies ist nicht nur seiner fantastischen Lage, sondern auch seinen…",
+    "tags": [
+      "Märkte & Messen"
+    ],
+    "location_name": "Pfarre Linz - Hl. Geist",
+    "organizer_name": "Linzer Märkte",
+    "free_of_charge": false,
+    "suitable_for_children": true,
+    "next_date": "2026-09-05T06:30:00+02:00",
+    "occurrence_count": 2
+  },
+  {
+    "id": "722004",
+    "title": "Großer Flohmarkt in Christkönig",
+    "description": "Bratwürstel, Leberkäse und Getränke",
+    "tags": [
+      "Märkte & Messen"
+    ],
+    "location_name": "Friedenskirche",
+    "organizer_name": "Friedenskirche Linz - Pfarrkirche Christkönig",
+    "free_of_charge": true,
+    "suitable_for_children": false,
+    "next_date": "2026-09-05T08:00:00+02:00",
+    "occurrence_count": 1
+  },
+  {
+    "id": "719627",
+    "title": "Werke von Hans Bednar",
+    "description": "Das Café Traxlmayr bietet Künstler*innen die Möglichkeit, ihre Arbeiten einer breiten Öffentlichkeit zugänglich zu machen - immerhin durchqueren täglich hunderte Personen die Räumlichkeiten.",
+    "tags": [
+      "Museen & Ausstellungen"
+    ],
+    "location_name": "Café Traxlmayr",
+    "organizer_name": "Café Traxlmayr",
+    "free_of_charge": true,
+    "suitable_for_children": false,
+    "next_date": "2026-09-05T08:00:00+02:00",
+    "occurrence_count": 10
+  },
+  {
+    "id": "721533",
+    "title": "Brautage in der Linzer Brauerei",
+    "description": "Unsere Brau-Experten:innen geben dir eine Einführung in die Rohstoffe und den Brauprozess, um dann unter fachkundiger Anleitung mit dem Maischen, Kochen, Kühlen und Vergären zu beginnen. Gemeinsam werden außerdem unterschiedlichster Bier Stile verkostet und dabei so manch überraschender Geschmack entdeckt. Das Package…",
+    "tags": [
+      "Kulinarik"
+    ],
+    "location_name": "Linzer Bier Brauerei",
+    "organizer_name": "Linzer Bier Brauerei",
+    "free_of_charge": false,
+    "suitable_for_children": false,
+    "next_date": "2026-09-05T09:00:00+02:00",
+    "occurrence_count": 1
+  },
+  {
+    "id": "707502",
+    "title": "Linz – Krems",
+    "description": "Unvergessliche Schifffahrt durch malerische Landschaften. Herrliche Landschaftsabschnitte durchfahren Sie von Linz nach Wien: Durch den sagenumwobenen Struden- und Nibelungengau und die malerischen Weinberge der Wachau geht es entlang berühmter Sehenswürdigkeiten wie Stift Melk oder Göttweig. Ab Krems wird ein Bus…",
+    "tags": [
+      "Führungen & Touren"
+    ],
+    "location_name": "Schiffsanlegestelle Wurm & Noé",
+    "organizer_name": "Donauschifffahrt Wurm & Noé",
+    "free_of_charge": false,
+    "suitable_for_children": false,
+    "next_date": "2026-09-05T09:00:00+02:00",
+    "occurrence_count": 1
+  },
+  {
+    "id": "722022",
+    "title": "Aus Sand gebaut",
+    "description": "Diesen Sommer wird der \"coolste Ausstellungsraum der Stadt\" zu einer Sandlandschaft, an der man mitgestalten kann. Im KunstRaum Goethestrasse xtd von pro mente OÖ entsteht eine raumfüllende Installation, die Assoziationen an Strand, Meer und Urlaub weckt. Mit einer Menge Sand, rund einer Tonne, in einem runden…",
+    "tags": [
+      "Museen & Ausstellungen"
+    ],
+    "location_name": "KunstRaum Goethestraße xtd",
+    "organizer_name": "KunstRaum Goethestrasse xtd",
+    "free_of_charge": true,
+    "suitable_for_children": false,
+    "next_date": "2026-09-05T09:00:00+02:00",
+    "occurrence_count": 8
+  },
+  {
+    "id": "701475",
+    "title": "Linzer Zoo",
+    "description": "Auf halber Höhe des Pöstlingberges, angrenzend an das Naturschutzgebiet Urfahrwänd und mit sagenhaftem Ausblick auf die Stadt, lädt der Zoo Linz zum unvergesslichen Tier- und Naturerlebnis ein und bietet Erholungsuchenden ungestörtes Entspannen und Verweileninmitten üppiger Grünlandschaft. 600 exotische und heimische…",
+    "tags": [
+      "Führungen & Touren"
+    ],
+    "location_name": "Zoo Linz",
+    "organizer_name": "Zoo Linz",
+    "free_of_charge": false,
+    "suitable_for_children": true,
+    "next_date": "2026-09-05T09:00:00+02:00",
+    "occurrence_count": 10
+  },
+  {
+    "id": "719394",
+    "title": "Spice Odyssey: Eine Reise in die Welt der Chili",
+    "description": "Die Ausstellung „Capsicum – Die Welt der Chili und Paprika“ bietet einen kompakten Einblick in Botanik, Geschichte und kulinarische Vielfalt der Gattung Capsicum. Sie zeigt, wie aus wilden Chilis Mittel- und Südamerikas durch jahrtausendelange Züchtung Paprika, Pfefferoni und unzählige Chilisorten entstanden sind und…",
+    "tags": [
+      "Museen & Ausstellungen"
+    ],
+    "location_name": "Freiland",
+    "organizer_name": "Botanischer Garten und Naturkundliche Station",
+    "free_of_charge": false,
+    "suitable_for_children": false,
+    "next_date": "2026-09-05T09:00:00+02:00",
+    "occurrence_count": 10
+  },
+  {
+    "id": "704420",
+    "title": "Lentos Atelier",
+    "description": "Im Lentos-Ate­lier kön­nen Kin­der von 6 bis 12 Jah­ren einen krea­ti­ven Vor­mit­tag im Donau­ate­lier erle­ben und eige­ne Kunst­wer­ke erschaf­fen. Neben einem kur­zen spie­le­ri­schen Rund­gang durch eine der aktu­el­len Aus­stel­lun­gen, beschäf­ti­gen wir uns mit einer künst­le­ri­schen Tech­nik. Hier kann mit…",
+    "tags": [
+      "Wissen & Kurse"
+    ],
+    "location_name": "Lentos Kunstmuseum Linz",
+    "organizer_name": "Lentos Kunstmuseum Linz",
+    "free_of_charge": false,
+    "suitable_for_children": true,
+    "next_date": "2026-09-05T10:00:00+02:00",
+    "occurrence_count": 2
+  },
+  {
+    "id": "701385",
+    "title": "Die Zwerge freuen sich auf den Besuch",
+    "description": "Zwergenspaß in der Grottenbahn, der Märchenwelt für Groß und Klein. Glauben Sie noch an Drachen, Hexen und Zwerge? Nein – und Ihre Kinder? Lassen Sie sich überzeugen und begleiten Sie diese zu einem Ausflug in die Grottenbahn. Dort werden Sie sehen: Es gibt sie noch, die Feuer speienden Drachen, die Lebkuchenhexen und…",
+    "tags": [
+      "Führungen & Touren"
+    ],
+    "location_name": "Linz Linien Grottenbahn",
+    "organizer_name": "Grottenbahn",
+    "free_of_charge": false,
+    "suitable_for_children": true,
+    "next_date": "2026-09-05T10:00:00+02:00",
+    "occurrence_count": 10
+  },
+  {
+    "id": "701783",
+    "title": "Stadtrundfahrten mit dem Linz City Express",
+    "description": "Im knallgelben Zug die schönsten Linzer Sehenswürdigkeiten passieren! Bei einer gemütlichen, rund 25-minütigen Stadtrundfahrt bekommen die Passagiere einen Überblick über sehenswerte Plätze in Linz. Interessante Informationen und Details zur Kultur und Geschichte der Donaustadt stehen in acht Sprachen zur Verfügung.…",
+    "tags": [
+      "Führungen & Touren"
+    ],
+    "location_name": "Hauptplatz",
+    "organizer_name": "City Express",
+    "free_of_charge": false,
+    "suitable_for_children": true,
+    "next_date": "2026-09-05T10:00:00+02:00",
+    "occurrence_count": 10
+  },
+  {
+    "id": "706176",
+    "title": "Sepp Auer: Linie · Fläche · Raum",
+    "description": "Dem Bild Raum geben. Das Schlossmuseum würdigt das Spätwerk und das ungebrochene künstlerische Schaffen des österreichischen Bildhauers und Installations­künstlers Sepp Auer. Seine konzeptuellen und mini­malistischen Arbeiten gehen vom Bild aus und entfalten sich skulptural im Raum zu vielschichtigen Installationen.…",
+    "tags": [
+      "Museen & Ausstellungen"
+    ],
+    "location_name": "Schlossmuseum Linz",
+    "organizer_name": "OÖ Landes-Kultur GmbH",
+    "free_of_charge": false,
+    "suitable_for_children": false,
+    "next_date": "2026-09-05T10:00:00+02:00",
+    "occurrence_count": 8
+  },
+  {
+    "id": "703726",
+    "title": "Kinderforschungslabor",
+    "description": "Wie kann man Kinder an neue Technologien heranführen? Als Antwort auf diese Frage haben wir ein eigenes Forschungslabor nur für Kinder entwickelt. Mit dem Ars Electronica Kinderforschungslabor ist ein vielseitiges Spielfeld entstanden, das den Kindern Zeit und Raum zum Spielen und Entdecken unserer Welt gibt, der…",
+    "tags": [
+      "Museen & Ausstellungen"
+    ],
+    "location_name": "Ars Electronica Center",
+    "organizer_name": "Ars Electronica Linz GmbH & Co KG",
+    "free_of_charge": false,
+    "suitable_for_children": true,
+    "next_date": "2026-09-05T10:00:00+02:00",
+    "occurrence_count": 8
+  },
+  {
+    "id": "719506",
+    "title": "Peter Fellner: Glumpert",
+    "description": "Nachhaltige Mode als Safe Space. In GLUMPERT verknüpft der österreichische Designer Peter Fellner nachhaltige Materialstrategien mit einer bewussten, queeren Symbolik. Aus gebrauchten Alltagsgegenständen wie Stickbildern, Häkeldeckchen, Tüchern und Regenschirmen schafft er Kleidungsstücke, deren Spuren sichtbar…",
+    "tags": [
+      "Museen & Ausstellungen"
+    ],
+    "location_name": "OK Linz",
+    "organizer_name": "OÖ Landes-Kultur GmbH",
+    "free_of_charge": true,
+    "suitable_for_children": false,
+    "next_date": "2026-09-05T10:00:00+02:00",
+    "occurrence_count": 8
+  },
+  {
+    "id": "701531",
+    "title": "Schlossmuseum Dauerausstellungen",
+    "description": "Das Linzer Schlossmuseum gibt auf über 10.000 m² Ausstellungsfläche einen umfangreichen Einblick in die Natur-, Kultur- und Kunstgeschichte Oberösterreichs vom Beginn des Lebens bis ins 21. Jahrhundert. Die Dauerausstellungen, im historischen Schloss wie im neuen Südtrakt, sind breit gefächert. Sie reichen von der…",
+    "tags": [
+      "Museen & Ausstellungen"
+    ],
+    "location_name": "Schlossmuseum Linz",
+    "organizer_name": "OÖ Landes-Kultur GmbH",
+    "free_of_charge": false,
+    "suitable_for_children": false,
+    "next_date": "2026-09-05T10:00:00+02:00",
+    "occurrence_count": 8
+  },
+  {
+    "id": "706581",
+    "title": "Linz Blick: Die Stadt im Fokus",
+    "description": "In die­sem neu­en Teil der Samm­lungs­schau zeu­gen daher glei­cher­ma­ßen Kunst­wer­ke wie volks­kund­li­che Objek­te und ande­re sel­te­ne Doku­men­te von den Linzer*innen, den Tra­di­tio­nen oder spe­zi­el­len Bege­ben­hei­ten. Dazu gehö­ren das sich stets ver­än­dern­de Stadt­bild, Mobi­li­tät, das urba­ne Leben…",
+    "tags": [
+      "Museen & Ausstellungen"
+    ],
+    "location_name": "Nordico Stadtmuseum Linz",
+    "organizer_name": "Nordico Stadtmuseum Linz",
+    "free_of_charge": false,
+    "suitable_for_children": false,
+    "next_date": "2026-09-05T10:00:00+02:00",
+    "occurrence_count": 8
+  },
+  {
+    "id": "701582",
+    "title": "Führung ZeitgeschichteMUSEUM voestalpine",
+    "description": "Nach einem kurzen Einführungsfilm werden die einzelnen Abschnitte der Ausstellung im Detail erklärt. Fokus liegt hierbei auf die Themen Nationalsozialismus in Linz, Zwangsarbeit und ihre Erscheinungsbilder, menschliche Schicksale, Frauen als Zwangsarbeiterinnen und Zerstörung und Wiederaufbau. Im \"Zeitgeschichte…",
+    "tags": [
+      "Führungen & Touren"
+    ],
+    "location_name": "Zeitgeschichte MUSEUM",
+    "organizer_name": "voestalpine Stahlwelt",
+    "free_of_charge": false,
+    "suitable_for_children": false,
+    "next_date": "2026-09-05T10:00:00+02:00",
+    "occurrence_count": 3
+  },
+  {
+    "id": "701667",
+    "title": "Pöstlingbergbahn-Museum",
+    "description": "Die Geschichte zur beliebten Pöstlingbergbahn. Alle Freunde der Pöstlingbergbahn haben die Möglichkeit, in der nostalgischen Talstation das liebevoll gestaltete Pöstlingbergbahn-Museum zu besuchen. Das historische Ambiente der ehemaligen Talstation ist ein würdiger Rahmen für das Museum. Als Informationszentrum über…",
+    "tags": [
+      "Museen & Ausstellungen"
+    ],
+    "location_name": "Pöstlingbergbahn-Museum",
+    "organizer_name": "Pöstlingbergbahn-Museum",
+    "free_of_charge": true,
+    "suitable_for_children": true,
+    "next_date": "2026-09-05T10:00:00+02:00",
+    "occurrence_count": 4
+  },
+  {
+    "id": "707503",
+    "title": "Hafentour",
+    "description": "Linz vom Wasser aus erleben. An Bord der MS Linzerin erleben Sie hautnah die Linzer Innenstadt mit ihrer umwerfenden Mischung aus modernster Architektur, historischen Gebäuden, Kulturstätten und Häfen. Ein Höhepunkt ist die kurze Einfahrt in den im Linzer Handelshafen entstandenen „Mural Harbour“. Vom Wasser aus…",
+    "tags": [
+      "Führungen & Touren"
+    ],
+    "location_name": "Schiffsanlegestelle Wurm & Noé",
+    "organizer_name": "Donauschifffahrt Wurm & Noé",
+    "free_of_charge": false,
+    "suitable_for_children": true,
+    "next_date": "2026-09-05T11:00:00+02:00",
+    "occurrence_count": 39
+  },
+  {
+    "id": "720537",
+    "title": "Mission: Das Indoor Team-Abenteuer für die ganze Familie",
+    "description": "Mission ist ein völlig neuer Freizeit-Spaß, der vor unterhaltsame, spannende und abwechslungsreiche Abenteuer stellt. Man könnte natürlich sagen es ist ein Spiel, aber in Wirklichkeit ist es wohl ein geheimes Trainings-Camp für die nächste Generation von Superheld*innen. Geschicklichkeit, Köpfchen, Teamgeist und…",
+    "tags": [
+      "Spiel & Spaß"
+    ],
+    "location_name": "Missiongames Linz",
+    "organizer_name": "Missiongames Linz",
+    "free_of_charge": false,
+    "suitable_for_children": true,
+    "next_date": "2026-09-05T13:00:00+02:00",
+    "occurrence_count": 8
+  },
+  {
+    "id": "717715",
+    "title": "Robert Moser: Im Paradies der Malerei.",
+    "description": "Oder: Über Entfaltung und Verfeinerung. Eröffnung: Montag, 31. August 2026, 19:00 Uhr",
+    "tags": [
+      "Museen & Ausstellungen"
+    ],
+    "location_name": "Clubgalerie der Dr. Ernst Koref-Stiftung im OÖ Kulturquartier",
+    "organizer_name": "DIE KUNSTSCHAFFENDEN",
+    "free_of_charge": true,
+    "suitable_for_children": false,
+    "next_date": "2026-09-05T13:00:00+02:00",
+    "occurrence_count": 6
+  },
+  {
+    "id": "701717",
+    "title": "Themenführung: Altstadthäuser und ihre Geschichte(n)",
+    "description": "Die Linzer Austria Guides zeigen Ihnen die schönsten und interessantesten Plätze, abseits der bekannten Routen! Bei einem Spaziergang durch die Altstadt erfahren Sie mehr über die Geschichte der Entstehung, den Aufbau der Gebäude und ihre Veränderungen im Laufe der Zeit. Vor allem gibt es einige interessante…",
+    "tags": [
+      "Führungen & Touren"
+    ],
+    "location_name": "Linz Innenstadt",
+    "organizer_name": "www.linzerleben.at",
+    "free_of_charge": false,
+    "suitable_for_children": false,
+    "next_date": "2026-09-05T14:00:00+02:00",
+    "occurrence_count": 1
+  },
+  {
+    "id": "718589",
+    "title": "Führung: Bauernkrieg 1626",
+    "description": "Führung durch die aktuelle Ausstellung.",
+    "tags": [
+      "Führungen & Touren"
+    ],
+    "location_name": "Schlossmuseum Linz",
+    "organizer_name": "OÖ Landes-Kultur GmbH",
+    "free_of_charge": false,
+    "suitable_for_children": false,
+    "next_date": "2026-09-05T14:00:00+02:00",
+    "occurrence_count": 3
+  },
+  {
+    "id": "707035",
+    "title": "Erlebnis Mariendom",
+    "description": "Zur Geschichte des Bauwerks (Erdgeschoß) inkl. Besichtigung der Krypta. Während Sie die eindrucksvolle Atmosphäre des großen neugotischen Innenraumes erleben, erfahren Sie Einzelheiten zur Entstehungsgeschichte des Mariendoms. Anhand der prächtigen Gemäldefenster wird in detailgetreuer Darstellung der Dombau…",
+    "tags": [
+      "Führungen & Touren"
+    ],
+    "location_name": "Neuer Dom (Mariendom)",
+    "organizer_name": "Mariendom Linz",
+    "free_of_charge": false,
+    "suitable_for_children": true,
+    "next_date": "2026-09-05T15:00:00+02:00",
+    "occurrence_count": 2
+  },
+  {
+    "id": "717387",
+    "title": "Pokemon TCG Tausch Nachmittag",
+    "description": "Triff andere Pokemon-Fans zum Tauschen, Spielen und über das Hobby reden. Die Teilnahme ist kostenlos und eine Anmeldung ist nicht erforderlich.",
+    "tags": [
+      "Kinder & Jugend",
+      "Spiel & Spaß"
+    ],
+    "location_name": "Genduron",
+    "organizer_name": "Genduron",
+    "free_of_charge": true,
+    "suitable_for_children": true,
+    "next_date": "2026-09-05T15:00:00+02:00",
+    "occurrence_count": 2
+  },
+  {
+    "id": "720868",
+    "title": "IB Acousticx",
+    "description": "Crazy Acoustic Duo",
+    "tags": [
+      "Konzerte & Unterhaltung"
+    ],
+    "location_name": "Open Stage",
+    "organizer_name": "IB Acousticx",
+    "free_of_charge": true,
+    "suitable_for_children": true,
+    "next_date": "2026-09-05T16:00:00+02:00",
+    "occurrence_count": 1
+  },
+  {
+    "id": "719871",
+    "title": "Zeitgeschichte-Führung im Limonistollen",
+    "description": "Rundgang in einer der ehemaligen Luftschutzkeller Linz. Weitere Information bitte der Homepage zu entnehmen.",
+    "tags": [
+      "Museen & Ausstellungen"
+    ],
+    "location_name": "Limonistollen",
+    "organizer_name": "Arge Limonistollen",
+    "free_of_charge": false,
+    "suitable_for_children": false,
+    "next_date": "2026-09-05T16:00:00+02:00",
+    "occurrence_count": 1
+  },
+  {
+    "id": "707036",
+    "title": "Über die Himmelsstiege – 633 Stufen zum Hochgefühl (112 m)",
+    "description": "633 Stufen zum Hochgefühl. Diese einzigartige Führung führt zur höchsten Aussichtsmöglichkeit einer Kirche in Österreich, nämlich auf 112 Meter Höhe. Nach dem Erklimmen von insgesamt 633 Stufen gelangen Sie im Rahmen dieser einzigartigen Führung zur höchsten Aussichtsmöglichkeit einer Kirche in Österreich. Vorbei an…",
+    "tags": [
+      "Führungen & Touren"
+    ],
+    "location_name": "Neuer Dom (Mariendom)",
+    "organizer_name": "Mariendom Linz",
+    "free_of_charge": false,
+    "suitable_for_children": false,
+    "next_date": "2026-09-05T16:00:00+02:00",
+    "occurrence_count": 5
+  },
+  {
+    "id": "715778",
+    "title": "Escape Room bei Masters Of Escape",
+    "description": "Die Mission ist simpel: Ihr seid in einem Raum eingeschlossen, mit dem Ziel innerhalb von 60 Minuten zu entkommen. Jedoch befindet ihr euch in einer anderen Welt, deren Geschichte und Geheimnisse ihr erst erkunden müsst! Nur mit Geschick und Kreativität könnt ihr alle Rätsel und Aufgaben meistern und in der Handlung…",
+    "tags": [
+      "Spiel & Spaß"
+    ],
+    "location_name": "Escape Room Linz: Masters Of Escape",
+    "organizer_name": "Escape Room Linz: Masters Of Escape",
+    "free_of_charge": false,
+    "suitable_for_children": false,
+    "next_date": "2026-09-05T17:00:00+02:00",
+    "occurrence_count": 5
+  },
+  {
+    "id": "715783",
+    "title": "Wudang Shan (Escape Room)",
+    "description": "Ein Escape Room im Indiana-Jones-Stil, der ideenreiches Tüfteln und Out Of The Box Thinking erfordert. ESCAPE ROOM: Tüfteln im Team Die Mission ist simpel: Ihr seid in einem Raum eingeschlossen mit dem Ziel innerhalb von 60 Minuten zu entkommen. Jedoch befindet ihr euch in einer anderen Welt, deren Geschichte und…",
+    "tags": [
+      "Spiel & Spaß"
+    ],
+    "location_name": "Escape Room Linz: Masters Of Escape",
+    "organizer_name": "Escape Room Linz: Masters Of Escape",
+    "free_of_charge": false,
+    "suitable_for_children": false,
+    "next_date": "2026-09-05T20:00:00+02:00",
+    "occurrence_count": 8
+  },
+  {
+    "id": "715781",
+    "title": "Prison Break (Escape Room)",
+    "description": "Der klassische Escape Room neu interpretiert. Ein filmreifes Abenteuer, das mehr als Geschicklichkeit abverlangt. ESCAPE ROOM: Tüfteln im Team Die Mission ist simpel: Ihr seid in einem Raum eingeschlossen mit dem Ziel innerhalb von 60 Minuten zu entkommen. Jedoch befindet ihr euch in einer anderen Welt, deren…",
+    "tags": [
+      "Spiel & Spaß"
+    ],
+    "location_name": "Escape Room Linz: Masters Of Escape",
+    "organizer_name": "Escape Room Linz: Masters Of Escape",
+    "free_of_charge": false,
+    "suitable_for_children": false,
+    "next_date": "2026-09-05T20:00:00+02:00",
+    "occurrence_count": 8
+  },
+  {
+    "id": "714199",
+    "title": "Fotografie und Meditation – The ZEN of Photography",
+    "description": "Drei ZEN-Meditationen zu je 10 Min wechseln sich mit jeweils knapp 30 Min fotografischen Geh-Meditationen ab. Mitzubringen sind Kamera, Objektiv, Speicherkarte/Film, Ersatzakku, Trinken, bequeme, dem Wetter angepasste Kleidung, eventuell kleine Sitzunterlage. Anmeldung: info@herbertkoeppel.com Entfällt bei…",
+    "tags": [
+      "Gesundheit",
+      "Wissen & Kurse"
+    ],
+    "location_name": "Freiland",
+    "organizer_name": "Botanischer Garten und Naturkundliche Station",
+    "free_of_charge": false,
+    "suitable_for_children": false,
+    "next_date": "2026-09-06T09:00:00+02:00",
+    "occurrence_count": 1
+  },
+  {
+    "id": "721727",
+    "title": "Kasperl auf Zeitreise – Puppentheater Aigen-Schlägl",
+    "description": "Seppi und Kapserl reisen ins 17. Jhdt – über Geschichte, Mut und Gemeinschaft für Kinder Gemeinsam mit Seppi und Kasperl vom Puppentheater Aigen-Schlägl begeben sich Kinder auf eine spannende Reise ins 17. Jahrhundert. Spielerisch erfahren sie, wie die Menschen damals lebten, und entdecken, wie wichtig Freundschaft…",
+    "tags": [
+      "Theater & Kabarett"
+    ],
+    "location_name": "Schlossmuseum Linz",
+    "organizer_name": "Amt der Oö. Landesregierung / Direktion Kultur",
+    "free_of_charge": true,
+    "suitable_for_children": true,
+    "next_date": "2026-09-06T11:00:00+02:00",
+    "occurrence_count": 2
+  },
+  {
+    "id": "707033",
+    "title": "Hoch oben im Dom (Galerieführung)",
+    "description": "Eine Führung durch die Innengalerie, den Dachboden und die Außengalerie. Erleben Sie im Rahmen dieser Führung Einblicke in normalerweise unzugängliche Bereiche des Mariendoms. Vom Erdgeschoss führt der Weg über „geheime“ Wendeltreppen auf die Innengalerie (86 Stufen), von der man die großen Rosettenfenster und…",
+    "tags": [
+      "Führungen & Touren"
+    ],
+    "location_name": "Neuer Dom (Mariendom)",
+    "organizer_name": "Mariendom Linz",
+    "free_of_charge": false,
+    "suitable_for_children": true,
+    "next_date": "2026-09-06T15:00:00+02:00",
+    "occurrence_count": 2
+  },
+  {
+    "id": "577694",
+    "title": "Masterclass",
+    "description": "Für alle Tanzpaare, die sich vorstellen können, ihre tänzerischen Qualitäten auf ein Tanzturnierniveau in den Standard- und Lateintänzen zu heben. Wöchentlich wird zwischen Standard und Latein gewechselt. Nähere Infos bei Jakob Pöllhuber: 0660 6193211",
+    "tags": [
+      "Zum Mitmachen",
+      "Zum Zuschauen"
+    ],
+    "location_name": "Sportunion Tanzsportklub Linz",
+    "organizer_name": "Sportunion Tanzsportclub Linz (UTSC Linz)",
+    "free_of_charge": false,
+    "suitable_for_children": false,
+    "next_date": "2026-09-06T18:00:00+02:00",
+    "occurrence_count": 2
+  },
+  {
+    "id": "721566",
+    "title": "Already, Not Quite Yet: The Act of Changing",
+    "description": "Das LINZ AG-Kunstforum wird im Spätsommer wieder zur Bühne für eine beeindruckende Ausstellung zweier junger Künstler*innen. „Already, Not Quite Yet: The Act of Changing“ widmet sich dem Zustand des Wandels. Anne Schinko und Michaela Kessler sehen Kunst als ständigen Prozess und als Ausdruck des sich wandelnden…",
+    "tags": [
+      "Museen & Ausstellungen"
+    ],
+    "location_name": "LINZ AG Kunstforum",
+    "organizer_name": "LINZ AG Kunstforum",
+    "free_of_charge": true,
+    "suitable_for_children": false,
+    "next_date": "2026-09-07T08:00:00+02:00",
+    "occurrence_count": 6
+  },
+  {
+    "id": "721101",
+    "title": "Digital City Studio – Digitales Stadtlabor Linz",
+    "description": "Digitale Technologien entdecken, hinterfragen und aktiv mitgestalten. Nur wenige Schritte vom Linzer Hauptplatz entfernt ist das Studio mitten ins urbane Leben der Stadt eingebettet. Das Digital City Studio ist eine gemeinsame Initiative der IT:U und der Stadt Linz. Es dient als lebendige Schnittstelle zwischen…",
+    "tags": [
+      "Wissen & Kurse"
+    ],
+    "location_name": "Digital City Studio – Digitales Stadtlabor Linz",
+    "organizer_name": "Digital City Studio",
+    "free_of_charge": true,
+    "suitable_for_children": false,
+    "next_date": "2026-09-07T09:00:00+02:00",
+    "occurrence_count": 6
+  },
+  {
+    "id": "718290",
+    "title": "Die Geschichte der Zahnheilkunde und Zahntechnik",
+    "description": "Das Zahnmuseum beherbergt Exponate von 1700 bis zur heutigen Zeit, anhand derer die Entwicklung der Zahnmedizin und Zahntechnik gezeigt wird. Das Museum für Zahnmedizin soll dem Besucher einen Überblick über die Entwicklung der Zahnmedizin von ca. 1700 bis in die heutige Zeit geben. Die ältesten Exponate, ein…",
+    "tags": [
+      "Museen & Ausstellungen"
+    ],
+    "location_name": "Zahnmuseum",
+    "organizer_name": "Zahnmuseum",
+    "free_of_charge": true,
+    "suitable_for_children": false,
+    "next_date": "2026-09-07T09:00:00+02:00",
+    "occurrence_count": 6
+  },
+  {
+    "id": "221294",
+    "title": "Yogakurse im Sommer",
+    "description": "Sommerprogramm 2026: 6. Juli bis 13. September Die Kurse des Sommerprogramms sind für die Kursteilnehmer*innen aller Übungsstufen geeignet. Montag 17:00 – 18:30 Uhr Dienstag 18:00 – 19:30 Uhr Mittwoch 18:45 – 20:15 Uhr Infos und Anmeldung unter linz@yogaindailylife.org Durch regelmäßiges und vertrauensvolles Üben von…",
+    "tags": [
+      "Zum Mitmachen"
+    ],
+    "location_name": "Yoga im täglichen Leben",
+    "organizer_name": "Yoga im täglichen Leben",
+    "free_of_charge": false,
+    "suitable_for_children": false,
+    "next_date": "2026-09-07T17:00:00+02:00",
+    "occurrence_count": 3
+  },
+  {
+    "id": "721983",
+    "title": "Kunst am Campus",
+    "description": "Anlässlich des 60-jährigen Jubiläums der JKU Linz wurden die Kunstwerke, die im Laufe der Zeit den Campus gestaltet und verändert haben, neu betrachtet. Im Rahmen eines Kooperationsprojekts mit der Katholischen Privat-Universität Linz hat Ilaria Hoppe gemeinsam mit Studierenden einen Folder kunstwissenschaftlich…",
+    "tags": [
+      "Wissen & Kurse"
+    ],
+    "location_name": "Kepler Salon",
+    "organizer_name": "Kepler Salon",
+    "free_of_charge": true,
+    "suitable_for_children": false,
+    "next_date": "2026-09-07T19:30:00+02:00",
+    "occurrence_count": 1
+  },
+  {
+    "id": "701018",
+    "title": "Stadtmarkt Hauptplatz | LINZER GENUSS MÄRKTE",
+    "description": "Der Stadtmarkt am Hauptplatz beeindruckt durch seine Vielfalt und sein reichhaltiges Angebot – besonders an Bio Lebensmittel. Vom frischen Brot, Fleisch, Fisch, Obst, Gemüse, ... bis hin zu Besen und Bürsten. Alles, was das Herz begehrt, kann hier erstanden werden. Es sind ungefähr 40 Anbieter, vorweigend Produzenten…",
+    "tags": [
+      "Märkte & Messen"
+    ],
+    "location_name": "Hauptplatz",
+    "organizer_name": "Linzer Märkte",
+    "free_of_charge": false,
+    "suitable_for_children": true,
+    "next_date": "2026-09-08T08:00:00+02:00",
+    "occurrence_count": 2
+  },
+  {
+    "id": "722033",
+    "title": "Bewegte Apotheke Grüne Mitte",
+    "description": "Die Apotheke Grüne Mitte, die PVE Grüne Mitte und das Stadtteilzentrum Franckviertel-Bulgariplatz laden herzlich zur „Bewegten Apotheke“ ein! Gemeinsam machen wir einen Spaziergang mit leichten Bewegungsübungen zur Förderung von Koordination und Wohlbefinden und lernen dabei Menschen aus der Nachbarschaft kennen. Wir…",
+    "tags": [
+      "Zum Mitmachen"
+    ],
+    "location_name": "Apotheke Grüne Mitte",
+    "organizer_name": "Stadtteilzentrum Franckviertel-Bulgariplatz",
+    "free_of_charge": true,
+    "suitable_for_children": false,
+    "next_date": "2026-09-08T09:00:00+02:00",
+    "occurrence_count": 1
+  },
+  {
+    "id": "715847",
+    "title": "Ausgezeichnet: Landespreise für Kultur und Talentförderungsprämien 2025",
+    "description": "Die Ausstellung AUSGEZEICHNET präsentiert die Preisträgerinnen und Preisträger der Landeskulturpreise 2025. WOLFGANG „FADI“ DORNINGER Großer Landespreis für Kultur I Experimentelle und interdisziplinäre Formen künstl. Arbeitens BERNADETTE HUBER Landespreis für Kultur I Experimentelle und interdisziplinäre Formen…",
+    "tags": [
+      "Museen & Ausstellungen"
+    ],
+    "location_name": "die KUNSTSAMMLUNG des Landes Oberösterreich",
+    "organizer_name": "Die KUNSTSAMMLUNG des Landes OÖ",
+    "free_of_charge": true,
+    "suitable_for_children": false,
+    "next_date": "2026-09-08T14:00:00+02:00",
+    "occurrence_count": 3
+  },
+  {
+    "id": "719903",
+    "title": "Miriam Hamann: Stellar Atmospheres",
+    "description": "In ihrer Ausstellung Stellar Atmospheres begibt sich Miriam Hamann auf die Spuren jener Astrophysikerinnen, die um 1900 den Nachthimmel kartierten und klassifizierten. Ihre Arbeit legte einen Grundstein für unser Verständnis des Universums – und blieb dennoch lange ungewürdigt. Auf Grundlage hunderttausender…",
+    "tags": [
+      "Museen & Ausstellungen"
+    ],
+    "location_name": "Galerie OÖ. Kunstverein",
+    "organizer_name": "OÖ. Kunstverein, Galerie im Ursulinenhof",
+    "free_of_charge": true,
+    "suitable_for_children": false,
+    "next_date": "2026-09-08T14:00:00+02:00",
+    "occurrence_count": 6
+  },
+  {
+    "id": "721596",
+    "title": "Suburbia: Gebaute Träume – Zukunft Einfamilienhaus",
+    "description": "13 aktuelle Projekte zeigen, wie durch Sanierung, Transformation und Umnutzung bestehende Häuser in eine nachhaltige Zukunft überführt werden können. Ein großes Haus mit Garten, Swimmingpool und zwei Autos in der Garage. Ein ruhiger, sicherer Ort für die Kernfamilie, naturnah und in einer friedlichen Umgebung. Bis…",
+    "tags": [
+      "Museen & Ausstellungen"
+    ],
+    "location_name": "afo architekturforum oberösterreich",
+    "organizer_name": "afo architekturforum oberösterreich",
+    "free_of_charge": true,
+    "suitable_for_children": false,
+    "next_date": "2026-09-08T15:00:00+02:00",
+    "occurrence_count": 4
+  },
+  {
+    "id": "701506",
+    "title": "Claudia Larcher: No applause, no life, no pain.",
+    "description": "„No applause. no life. no pain.” entfaltet ein Panorama der Transformation. Des Verschwindens der Arten, des Verschiebens kollektiver Kulturräume sowie der Verflüchtigung gemeinsamer Wahrnehmung. Claudia Larcher verknüpft dabei ökologische Trauernarrative mit Fragen nach der Zukunft von Kino und Bildproduktion im…",
+    "tags": [
+      "Museen & Ausstellungen"
+    ],
+    "location_name": "Francisco Carolinum Linz",
+    "organizer_name": "OÖ Landes-Kultur GmbH",
+    "free_of_charge": false,
+    "suitable_for_children": false,
+    "next_date": "2026-09-08T18:00:00+02:00",
+    "occurrence_count": 6
+  },
+  {
+    "id": "717620",
+    "title": "Ana María Caballero: Read the Room",
+    "description": "Mit Read the Room präsentiert das Francisco Carolinum die erste institutionelle mid-career Retrospektive der Künstlerin und Dichterin Ana María Caballero. Die Ausstellung versammelt zentrale Arbeiten aus den Bereichen Installation, Performance, Skulptur, Choreografie, filmische KI und Literatur. Gemeinsam geben sie…",
+    "tags": [
+      "Museen & Ausstellungen"
+    ],
+    "location_name": "Francisco Carolinum Linz",
+    "organizer_name": "OÖ Landes-Kultur GmbH",
+    "free_of_charge": false,
+    "suitable_for_children": false,
+    "next_date": "2026-09-08T18:00:00+02:00",
+    "occurrence_count": 6
+  },
+  {
+    "id": "721073",
+    "title": "Sommeryoga an der Donau",
+    "description": "75 minuten Entspannter HATHA YOGA FLOW an der Donau in einer Gruppe ♥️ licher Yogis, open Level Urfahrseite, neben Eisenbahnbrücke, rechts unter den grossen Bäumen! bei Schönwetter ;-) Unbedingt: eigene Matte mitbringen, Trinkwasser auch Bring gerne friends mit! Freie Spende Bitte anmelden: nuad@gmx.de Ich freue mich…",
+    "tags": [
+      "Zum Mitmachen"
+    ],
+    "location_name": "Neue Eisenbahnbrücke",
+    "organizer_name": "Ada Atzmueller",
+    "free_of_charge": false,
+    "suitable_for_children": false,
+    "next_date": "2026-09-08T19:00:00+02:00",
+    "occurrence_count": 1
+  },
+  {
+    "id": "720415",
+    "title": "FUN-Orientierungslauf Bindermichl",
+    "description": "\"FUN-OL\" ist ein Orientierungslauf im Stadtgebiet von Linz. Die FUN-OL Saison geht von April bis Oktober. Ungefähr an jedem 2. Mittwoch im Monat kannst auch du teilnehmen. Für Anfänger und Kinder genauso geeignet wie für ambitionierte Läufer. Im Winter gibt es den \"Street-O\". Treffpunkt: Der genaue Treffpunkt am…",
+    "tags": [
+      "Zum Mitmachen"
+    ],
+    "location_name": "Landschaftspark Bindermichl-Spallerhof, Südportal A7 & Überplattung",
+    "organizer_name": "Naturfreunde Linz",
+    "free_of_charge": false,
+    "suitable_for_children": true,
+    "next_date": "2026-09-09T16:30:00+02:00",
+    "occurrence_count": 1
+  },
+  {
+    "id": "721329",
+    "title": "Heilsame Herzensbegegnung",
+    "description": "HEILSAME HERZENSBEGEGNUNG - Jeder Mensch mit all seinen Themen ist willkommen. Neues Format: Supervision & Selbsterfahrung - jeder Termin ist in sich abgeschlossen einzeln individuell buchbar Privat und beruflich verbindet uns eine Sehnsucht: wir möchten uns entwickeln und unsere Möglichkeiten erweitern. Genau dafür…",
+    "tags": [
+      "Gesundheit",
+      "Wissen & Kurse"
+    ],
+    "location_name": "Praxisgemeinschaft Wintersteiger",
+    "organizer_name": "Manuela Wintersteiger",
+    "free_of_charge": false,
+    "suitable_for_children": false,
+    "next_date": "2026-09-09T17:00:00+02:00",
+    "occurrence_count": 1
+  },
+  {
+    "id": "716246",
+    "title": "Offene Gruppenstunde in Standardtänzen für Turniertanzpaare",
+    "description": "Für alle Turniertanzpaare, die sich in den Standardtänzen verbessern wollen. Trainerin: Maria Emrich, ehemalige Jugend-Weltmeisterin in 10-Tänzen Standard und Latein. Voranmeldung bitte bei Harald Suk (0660 8712879).",
+    "tags": [
+      "Zum Mitmachen",
+      "Zum Zuschauen"
+    ],
+    "location_name": "Sportunion Tanzsportklub Linz",
+    "organizer_name": "Sportunion Tanzsportclub Linz (UTSC Linz)",
+    "free_of_charge": false,
+    "suitable_for_children": false,
+    "next_date": "2026-09-09T19:00:00+02:00",
+    "occurrence_count": 1
+  },
+  {
+    "id": "127356",
+    "title": "Mit Meditation und Achtsamkeit zu mehr Gelassenheit",
+    "description": "Wir möchten die Lehre des Buddha in unserer Zeit, unserem Kulturkreis leben. Bieten Raum einen Weg zu innerem Frieden und einer Freiheit zu erkunden, die nicht mit den äußeren Lebensumständen steht und fällt. Wir meditieren 3 x 25 Minuten im Sitzen, dazwischen ca. 10 Minuten Gehmeditation. Vorkenntnisse sind nicht…",
+    "tags": [
+      "Gesundheit",
+      "Zusammenleben"
+    ],
+    "location_name": "Zendo Linz",
+    "organizer_name": "Meditationsgruppe \"Buddhawege\"",
+    "free_of_charge": false,
+    "suitable_for_children": false,
+    "next_date": "2026-09-10T19:00:00+02:00",
+    "occurrence_count": 1
+  },
+  {
+    "id": "555106",
+    "title": "Hobbyclub",
+    "description": "Im Gesellschaftsclub (auch Hobbyclub genannt) wird unter Anleitung zu Standard- und Lateinmusik in gemütlicher Atmosphäre getanzt. Der Gesellschaftsclub richtet sich an Tanzpaare, die bereits Vorkenntnisse in den Standard- und Lateintänzen haben, d.h. zumindest einen Grundkurs in einer Tanzschule absolviert haben.…",
+    "tags": [
+      "Zum Mitmachen"
+    ],
+    "location_name": "Sportunion Tanzsportklub Linz",
+    "organizer_name": "Sportunion Tanzsportclub Linz (UTSC Linz)",
+    "free_of_charge": false,
+    "suitable_for_children": false,
+    "next_date": "2026-09-10T20:00:00+02:00",
+    "occurrence_count": 1
+  },
+  {
+    "id": "717381",
+    "title": "Friday Night Magic",
+    "description": "Jeden Freitag wird bei uns Magic:The Gathering gespielt. Meistens Commander und manchmal auch Draft. Die Teilnahme ist kostenlos und eine Anmeldung ist nicht erforderlich.",
+    "tags": [
+      "Kinder & Jugend",
+      "Spiel & Spaß"
+    ],
+    "location_name": "Genduron",
+    "organizer_name": "Genduron",
+    "free_of_charge": true,
+    "suitable_for_children": true,
+    "next_date": "2026-09-11T08:00:00+02:00",
+    "occurrence_count": 1
+  },
+  {
+    "id": "346377",
+    "title": "Die Schule des Sehens (Herbsttermin)",
+    "description": "„Die Farben des Herbstes einfangen…“ – Botanische Illustration mit Alois Wilfling Im Herbst zeigt sich der Botanische Garten noch einmal in seiner ganzen Farbenpracht. Diese Eindrücke wollen wir einfangen und – im wahrsten Sinne des Wortes – auf Papier bringen. Der zweitägige Workshop der Botanischen Illustration…",
+    "tags": [
+      "Wissen & Kurse"
+    ],
+    "location_name": "Seminarraum",
+    "organizer_name": "Botanischer Garten und Naturkundliche Station",
+    "free_of_charge": false,
+    "suitable_for_children": false,
+    "next_date": "2026-09-11T09:00:00+02:00",
+    "occurrence_count": 2
+  },
+  {
+    "id": "721486",
+    "title": "Experience Tour with Plant Tour",
+    "description": "Die interaktive Ausstellung entdecken. Erkunden Sie die Stahlwelt individuell und in Ihrem eigenen Rhythmus. Mit dem Multimedia-Tablet erleben Sie Hintergründe, Animationen und spannende Inhalte zur Stahlproduktion und zu innovativen Anwendungen. Auf den einzelnen Ausstellungsebenen stehen Guides für Fragen zur…",
+    "tags": [
+      "Führungen & Touren"
+    ],
+    "location_name": "voestalpine Stahlwelt",
+    "organizer_name": "voestalpine Stahlwelt",
+    "free_of_charge": false,
+    "suitable_for_children": false,
+    "next_date": "2026-09-11T11:30:00+02:00",
+    "occurrence_count": 1
+  },
+  {
+    "id": "721856",
+    "title": "MBSR - Einführungsveranstaltung",
+    "description": "Die Kurzveranstaltung bietet einen ersten Einblick in das Achtsamkeitsverfahren MBSR. Dabei werden das 8-wöchige Kursprogramm mit seinen Ein- und Ausschlusskriterien vorgestellt, Einblicke in die aktuelle Stressforschung gegeben und einzelne konkrete Kurzübungen durchgeführt. Zudem gibt es Zeit für Fragen und…",
+    "tags": [
+      "Wissen & Kurse"
+    ],
+    "location_name": "Wissensturm",
+    "organizer_name": "Volkshochschule Linz",
+    "free_of_charge": true,
+    "suitable_for_children": null,
+    "next_date": "2026-09-11T14:30:00+02:00",
+    "occurrence_count": 1
+  },
+  {
+    "id": "719111",
+    "title": "DOM.FRAUEN.BLICK – Frauenbilder im Mariendom",
+    "description": "Wer sind die Frauen in den beeindruckenden Fenstern des Mariendoms? Welche Geschichten erzählen sie - und welche Rollen wurden ihnen zugeschrieben? Diese neue Themenführung richtet den Blick auf verborgene Frauenfiguren zwischen Tradition und Moderne und lädt dazu ein, Bekanntes neu zu entdecken - aus weiblicher…",
+    "tags": [
+      "Führungen & Touren"
+    ],
+    "location_name": "Neuer Dom (Mariendom)",
+    "organizer_name": "Mariendom Linz",
+    "free_of_charge": false,
+    "suitable_for_children": false,
+    "next_date": "2026-09-11T16:00:00+02:00",
+    "occurrence_count": 1
+  },
+  {
+    "id": "703639",
+    "title": "Be Thrifty Vintage Kilo Sale",
+    "description": "Modeshopping zeitgemäß und nachhaltig als „Schatzsuche“ in der TipsArena. Umweltbewusstsein, Sparsamkeit, Individualität und eine große Auswahl an einzigartiger und wieder angesagter Mode und Accessoires sind die Eckpfeiler des bekannten und coolen Second-Hand-Konzepts von BeThrifty Vintage Kilo Sale. Die…",
+    "tags": [
+      "Märkte & Messen"
+    ],
+    "location_name": "TipsArena Linz",
+    "organizer_name": "LIVA Sport",
+    "free_of_charge": false,
+    "suitable_for_children": false,
+    "next_date": "2026-09-12T10:30:00+02:00",
+    "occurrence_count": 2
+  },
+  {
+    "id": "702223",
+    "title": "Dampfschiff Schönbrunn: Schifffahrt zum Kirtag nach Obermühl",
+    "description": "Von Linz zum Kirtag nach Obermühl! Die \"Schönbrunn\" ist der letzte Schaufelraddampfer auf der Donau fährt von Linz/Urfahr zum Kirtag nach Obermühl. Auf der Fahrt nach Obermühl passiert das Schiff außerdem die Haltestellen Ottensheim und Aschach. Auch für musikalische Unterhaltung ist bei dieser gemütlichen Schifffahrt…",
+    "tags": [
+      "Führungen & Touren"
+    ],
+    "location_name": "Schiffsanlegestelle Linz-Urfahr",
+    "organizer_name": "ÖGEG Dampfschiff Schönbrunn",
+    "free_of_charge": false,
+    "suitable_for_children": false,
+    "next_date": "2026-09-13T08:30:00+02:00",
+    "occurrence_count": 1
+  },
+  {
+    "id": "721254",
+    "title": "Schifffahrt zum Kirtag nach Obermühl",
+    "description": "Mit der Schönbrunn. Einstieg Linz/Urfahr ab 08:30 Uhr Abfahrt Linz/Urfahr 09:00 Uhr Abfahrt Ottensheim 09:50 Uhr Abfahrt Aschach 11:30 Uhr Ankunft Obermühl 13:00 Uhr Abfahrt Obermühl 16:00 Uhr Abfahrt Aschach 17:25 Uhr Abfahrt Ottensheim 18:40 Uhr Ankunft Linz/Urfahr 19:30 Uhr",
+    "tags": [
+      "Führungen & Touren"
+    ],
+    "location_name": "Schiffsanlegestelle Linz-Urfahr",
+    "organizer_name": "ÖGEG Dampfschiff Schönbrunn",
+    "free_of_charge": false,
+    "suitable_for_children": false,
+    "next_date": "2026-09-13T08:30:00+02:00",
+    "occurrence_count": 1
+  },
+  {
+    "id": "535513",
+    "title": "Sommeryoga goes Flower Power",
+    "description": "Sommeryoga steht für Outdoor Yoga Hier kannst Du Deine Yogapraxis im Einklang mit der Natur genießen. Ganz besonders am Morgen liegt noch dieser Zauber der Nacht in der Luft, alles erwacht zu neuem Leben und diese Qualität unterstützt die gemeinsame Yogapraxis im Botanischen Garten. Im Anschluss kannst Du durch den…",
+    "tags": [
+      "Zum Mitmachen"
+    ],
+    "location_name": "Bühne",
+    "organizer_name": "Botanischer Garten und Naturkundliche Station",
+    "free_of_charge": false,
+    "suitable_for_children": false,
+    "next_date": "2026-09-13T10:00:00+02:00",
+    "occurrence_count": 1
+  },
+  {
+    "id": "706735",
+    "title": "Festakt: Feierliche Eröffnung des Brucknerfestes Linz 2026",
+    "description": "Endlich! Mit dem traditionellen Festakt wird das Brucknerfest Linz 2026 feierlich eröffnet. Am Pult des Oberösterreichischen Jugendsinfonieorchesters debütiert die schwedische Dirigentin Kajsa Boström, unter anderem mit Musik ihres Urgroßvaters, des schwedischen Nationalkomponisten Ture Rangström, der 1922 in Göteborg…",
+    "tags": [
+      "Klassische & traditionelle Musik",
+      "Konzerte & Unterhaltung"
+    ],
+    "location_name": "Großer Saal",
+    "organizer_name": "Brucknerhaus Linz",
+    "free_of_charge": false,
+    "suitable_for_children": false,
+    "next_date": "2026-09-13T10:30:00+02:00",
+    "occurrence_count": 1
+  },
+  {
+    "id": "722032",
+    "title": "Tarock am Dom",
+    "description": "Der Verein Pro Mariendom – OÖ Dombauverein lädt herzlich zum 1. Benefiz-Tarockturnier ein. Freuen Sie sich auf einen besonderen Tarock-Nachmittag mit direktem Blick auf die größte Kirche Österreichs – und das im Zeichen eines guten Zwecks. Turnierdetails Sonntag, 13. September 2026 Beginn: 14.00 Uhr (Einlass ab 13.00…",
+    "tags": [
+      "Spiel & Spaß"
+    ],
+    "location_name": "Neuer Dom (Mariendom)",
+    "organizer_name": "Mariendom Linz",
+    "free_of_charge": false,
+    "suitable_for_children": false,
+    "next_date": "2026-09-13T14:00:00+02:00",
+    "occurrence_count": 1
+  },
+  {
+    "id": "719690",
+    "title": "Poschner, Rondeau & Bruckner Orchester Linz",
+    "description": "Brucknerfest Linz 2026. Frischer Wind. Gesänge von Nachtigall, Wachtel und Kuckuck, ein murmelnder Bach, Blitz und Donner, Hirtenweisen: Unter der Leitung von Markus Poschner bringt das Bruckner Orchester Linz mit Beethovens 6. Symphonie »Pastorale« die klingende Natur in den Konzertsaal. Der Naturliebhaber und…",
+    "tags": [
+      "Klassische & traditionelle Musik",
+      "Konzerte & Unterhaltung"
+    ],
+    "location_name": "Großer Saal",
+    "organizer_name": "Brucknerhaus Linz",
+    "free_of_charge": false,
+    "suitable_for_children": false,
+    "next_date": "2026-09-13T18:00:00+02:00",
+    "occurrence_count": 1
+  },
+  {
+    "id": "702910",
+    "title": "Swing Time",
+    "description": "It's time for Swing - Tanzen zu feinster Swingmusik! Wir tanzen gemeinsam zu Swingmusik. Seit 2012 tanzen begeisterte Menschen Lindy Hop in Linz. Viele Tänzer und Tänzerinnen haben seitdem ihre ersten Swing-Tanzschritte gewagt. Wir, die Tanzkommune, sind mit jedem und jeder einzelnen gewachsen. Herzlich willkommen!…",
+    "tags": [
+      "Konzerte & Unterhaltung"
+    ],
+    "location_name": "Salonschiff Fräulein Florentine",
+    "organizer_name": "Salonschiff Fräulein Florentine",
+    "free_of_charge": true,
+    "suitable_for_children": false,
+    "next_date": "2026-09-13T19:30:00+02:00",
+    "occurrence_count": 1
+  },
+  {
+    "id": "721729",
+    "title": "Literaturschiff: Banu Mushtaq",
+    "description": "Ein Abend mit der International Booker Prize 2025-Gewinnerin 12 Frauen gegen das Patriarchat. In ihren Storys zeigt Banu Mushtaq alltäglichen weiblichen Widerstand – vor dem Hintergrund eines von Klassismus und Korruption geprägten Indiens. Aashraf wird von ihrem Mann verlassen, weil sie „nur“ Töchter bekommt. Jamila…",
+    "tags": [
+      "Literatur"
+    ],
+    "location_name": "Kepler Salon",
+    "organizer_name": "Initiative.Literaturschiff – Verein für literarische Begegnungen in Oberösterreich",
+    "free_of_charge": true,
+    "suitable_for_children": false,
+    "next_date": "2026-09-14T19:30:00+02:00",
+    "occurrence_count": 1
+  }
+]
