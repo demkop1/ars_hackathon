@@ -1,0 +1,196 @@
+You are an expert frontend engineer and UI/UX designer.
+
+Your task is to build a complete frontend web application based on the workflow described in the provided `.svg` file.
+
+## Input
+
+The repository contains an SVG workflow diagram.
+
+First:
+
+1. Locate the `.svg` file in the project.
+2. Inspect the complete SVG, including:
+
+   * workflow stages;
+   * nodes;
+   * arrows and dependencies;
+   * decision points;
+   * user actions;
+   * data inputs;
+   * outputs;
+   * status transitions;
+   * labels and annotations.
+
+Do not simply reproduce the SVG visually.
+
+Instead, interpret the SVG as a functional specification for the application.
+
+## Goal
+
+Create a modern, production-quality frontend application that allows a user to interact with the workflow represented by the SVG.
+
+The UI should make the workflow intuitive and operational.
+
+For example:
+
+* workflow nodes should correspond to screens, cards, sections, actions, or processing stages;
+* decision nodes should become appropriate UI choices, controls, or conditional states;
+* inputs represented in the workflow should become forms or configuration controls;
+* workflow outputs should be clearly presented to the user;
+* processing stages should display their current status;
+* dependencies between stages should be reflected in the UI;
+* users should be able to understand where they currently are in the workflow.
+
+## Technology
+
+Use:
+
+* React
+* TypeScript
+* Vite
+* Tailwind CSS
+
+Use a clean component-based architecture.
+
+Prefer reusable components instead of large monolithic components.
+
+You may use suitable open-source UI/icon libraries already available in the project. If none are available, use lightweight dependencies where appropriate.
+
+## UI requirements
+
+Create a polished professional interface with:
+
+* application header;
+* navigation/sidebar if appropriate;
+* main workflow area;
+* cards or panels for individual workflow stages;
+* clear visual hierarchy;
+* responsive layout;
+* loading states;
+* empty states;
+* error states;
+* success states;
+* disabled states where an action cannot yet be performed;
+* tooltips for controls that may not be self-explanatory.
+
+Use modern spacing, typography, and responsive design.
+
+Avoid making the application look like a literal flowchart unless the SVG clearly indicates that an interactive graph is the best UI.
+
+Instead, determine the best UX representation of the workflow.
+
+## Workflow visualization
+
+Where useful, include a visual representation of workflow progress.
+
+For example:
+
+* stepper;
+* pipeline;
+* timeline;
+* progress indicator;
+* status cards;
+* dependency graph.
+
+The visualization should correspond directly to the stages discovered in the SVG.
+
+Clearly distinguish states such as:
+
+* Not started
+* Ready
+* In progress
+* Completed
+* Failed
+* Requires attention
+
+## Interactivity
+
+Implement realistic frontend interactions.
+
+Buttons and controls should work.
+
+Use mocked/local application state where a backend is required.
+
+For example:
+
+* forms should update state;
+* buttons should trigger workflow transitions;
+* processing actions may simulate loading;
+* completed stages should unlock dependent stages;
+* users should be able to inspect results;
+* errors should be represented meaningfully.
+
+Do not create buttons that have no behavior.
+
+## SVG usage
+
+The provided SVG is the source of truth for the business/workflow logic.
+
+However, do not embed the SVG as the application itself.
+
+You may optionally include the original SVG in a "Workflow overview" view for reference, but the primary interface must be a proper application.
+
+## Architecture
+
+Organize the application approximately as:
+
+src/
+components/
+features/
+pages/
+hooks/
+types/
+utils/
+data/
+
+Adjust this structure if another architecture better fits the application.
+
+Define TypeScript interfaces for important entities and workflow states.
+
+Keep workflow configuration/data separate from presentation where possible.
+
+## Important implementation rule
+
+Before writing the application, analyze the SVG and create a short internal implementation plan describing:
+
+1. the purpose of the application;
+2. workflow stages identified;
+3. important user actions;
+4. proposed screens/components;
+5. application state required;
+6. dependencies between workflow stages.
+
+Then implement the application based on that interpretation.
+
+If the SVG contains ambiguous elements, make reasonable product-design assumptions instead of stopping for clarification.
+
+Document those assumptions in the README.
+
+## Deliverables
+
+Create a runnable application in the current repository.
+
+Include:
+
+* all source files;
+* required configuration;
+* package dependencies;
+* responsive styling;
+* mock data where necessary;
+* README with:
+
+  * application purpose;
+  * workflow interpretation;
+  * assumptions;
+  * architecture overview;
+  * instructions for running the application.
+
+After implementation:
+
+1. install dependencies if necessary;
+2. run the build;
+3. fix all TypeScript/build errors;
+4. verify the application starts correctly;
+5. verify that the main workflow can be completed through the UI.
+
+Do not stop after generating a mockup. Implement the actual working frontend application.
