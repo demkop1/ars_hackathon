@@ -3,14 +3,12 @@ from __future__ import annotations
 import streamlit as st
 
 from src.components.empty_state import render_empty_state
-from src.components.event_card import render_event_card
 from src.components.hub_tabs import render_hub_tabs
+from src.components.swipe_deck import render_deck_progress, render_swipe_deck
 from src.data.loader import events_by_id
 from src.hooks.state import (
     AppState,
-    current_event_id,
     go_to,
-    open_detail,
     record_swipe,
     undo_last_swipe,
 )
@@ -68,31 +66,26 @@ def render(ss: AppState) -> None:
                 go_to("interests")
         return
 
-    st.progress(ss.deck_index / total, text=f"Card {ss.deck_index + 1} of {total}")
+    events = events_by_id()
+    remaining_ids = ss.deck[ss.deck_index :]
+    remaining_events = [events[eid] for eid in remaining_ids if eid in events]
 
-    event_id = current_event_id(ss)
-    event = events_by_id()[event_id]
-    render_event_card(
-        event,
-        variant="swipe",
-        match_count=ss.match_counts.get(event_id),
-        explanation=ss.match_explanations.get(event_id),
+    render_deck_progress(ss.deck_index, total)
+
+    swipe_result = render_swipe_deck(
+        remaining_events,
+        match_scores=ss.match_counts,
+        explanations=ss.match_explanations,
+        key=f"swipe_deck_{ss.deck_index}",
     )
+    if swipe_result:
+        direction = swipe_result.get("direction")
+        card_id = swipe_result.get("card_id")
+        current_id = remaining_events[0].id if remaining_events else None
+        if card_id == current_id:  # guard against a stale/duplicate replay
+            record_swipe(ss, card_id, "liked" if direction == "right" else "skipped")
+            st.rerun()
 
-    st.write("")
-    c_skip, c_undo, c_details, c_like = st.columns([1, 0.7, 1, 1])
-    with c_skip:
-        if st.button("✖ Skip", use_container_width=True):
-            record_swipe(ss, event_id, "skipped")
-            st.rerun()
-    with c_undo:
-        if st.button("↩ Undo", use_container_width=True, disabled=not ss.history):
-            undo_last_swipe(ss)
-            st.rerun()
-    with c_details:
-        if st.button("ℹ️ Details", use_container_width=True):
-            open_detail(ss, event_id, "discover")
-    with c_like:
-        if st.button("❤ Save", use_container_width=True, type="primary"):
-            record_swipe(ss, event_id, "liked")
-            st.rerun()
+    if st.button("↩ Undo last swipe", disabled=not ss.history):
+        undo_last_swipe(ss)
+        st.rerun()

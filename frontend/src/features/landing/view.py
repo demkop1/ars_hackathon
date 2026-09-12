@@ -5,50 +5,49 @@ import streamlit as st
 from src.data.loader import load_events
 from src.hooks.state import AppState, go_to
 
-_HIGHLIGHTS = [
-    ("🧭", "Curated from Linz", "Real events pulled from the city's public listings."),
-    ("🎯", "Matched to you", "Swipe decks are ranked by the interests you pick."),
-    ("❤️", "Nothing gets lost", "Save events as you go and revisit them anytime."),
+# icon, word -- no sentences, just quick doodle-sticker labels
+_STICKERS = [
+    ("🧭", "Curated", -4),
+    ("🎯", "Matched", 3),
+    ("❤️", "Saved", -2),
 ]
 
 
 def render(ss: AppState) -> None:
     events = load_events()
+
+    stickers_html = "".join(
+        f"""
+<span style="display:inline-flex;align-items:center;gap:6px;background:#FFFFFF;
+     border:2px dashed #C9A6D9;border-radius:14px;padding:7px 14px;margin:4px 6px;
+     font-size:13px;font-weight:800;color:#4B3B63;transform:rotate({angle}deg);">
+  {icon} {word}
+</span>"""
+        for icon, word, angle in _STICKERS
+    )
+
     st.markdown(
         f"""
-<div style="background:linear-gradient(135deg,#EEEDFE 0%,#E1F5EE 100%);border-radius:20px;
-     padding:44px 36px;text-align:center;margin-bottom:28px;">
-  <div style="font-size:44px;">🎪</div>
-  <div style="font-size:30px;font-weight:800;color:#1F1E1A;margin-top:8px;">Discover Linz, one swipe at a time</div>
-  <div style="font-size:15px;color:#5B5952;margin-top:10px;max-width:560px;margin-left:auto;margin-right:auto;">
-    Tell us what you're into, then swipe through a ranked stack of {len(events)}+ local events --
-    exhibitions, tours, markets, concerts and more -- and save the ones worth your evening.
+<div style="background:linear-gradient(135deg,#F4E9FB 0%,#E4F4EC 100%);border-radius:22px;
+     border:2px dashed #D6BEE8;padding:40px 28px 30px;text-align:center;margin-bottom:22px;">
+  <div style="font-size:48px;transform:rotate(-6deg);display:inline-block;">🎪</div>
+  <div style="font-size:28px;font-weight:900;color:#241F33;margin-top:6px;letter-spacing:-0.01em;">
+    Swipe your way through Linz
   </div>
+  <svg width="170" height="10" viewBox="0 0 170 10" style="margin:2px auto 10px;display:block;">
+    <path d="M3 6 Q 22 1, 42 6 T 82 6 T 122 6 T 162 6" stroke="#EC4899" stroke-width="3"
+          fill="none" stroke-linecap="round"/>
+  </svg>
+  <div style="font-size:14.5px;color:#5B5169;">
+    {len(events)}+ events. Swipe right on what's worth your evening.
+  </div>
+  <div style="margin-top:16px;">{stickers_html}</div>
 </div>
 """,
         unsafe_allow_html=True,
     )
 
-    cols = st.columns(3)
-    for col, (icon, title, desc) in zip(cols, _HIGHLIGHTS):
-        with col:
-            st.markdown(
-                f"""
-<div style="background:#FFFFFF;border:1px solid #E7E5DC;border-radius:14px;padding:18px;height:130px;">
-  <div style="font-size:22px;">{icon}</div>
-  <div style="font-size:14px;font-weight:700;color:#1F1E1A;margin-top:6px;">{title}</div>
-  <div style="font-size:12px;color:#7A7871;margin-top:4px;">{desc}</div>
-</div>
-""",
-                unsafe_allow_html=True,
-            )
-
-    st.write("")
     _, mid, _ = st.columns([1, 1.2, 1])
     with mid:
-        if st.button("Get started →", type="primary", use_container_width=True):
+        if st.button("Let's go →", type="primary", use_container_width=True):
             go_to("interests")
-    st.caption(
-        "Next: pick a few interests so we can tailor your swipe deck.",
-        help="This mirrors the app's screen flow: Landing → Interest selection → Swipe.",
-    )
