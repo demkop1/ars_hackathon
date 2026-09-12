@@ -94,3 +94,13 @@ with an env var before launching: `export BACKEND_URL=http://your-host:8000`.
 Pick a few interest tags and/or describe what you're after, hit continue,
 and swipe through the 10 events it picks for you. Liked events land in
 "Saved" (via the tab bar in-app).
+
+## 6. Run the lightweight Prototype
+
+To run the light weight Prototype just use the Prototype Folder.
+Start the server with the terminal command: 
+
+uvicorn server:app --host 0.0.0.0 --port 8000
+
+(make sure you launch within an environment that holds all the necessary packages)
+then double-click the index file and it should run
