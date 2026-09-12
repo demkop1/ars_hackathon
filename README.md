@@ -34,3 +34,63 @@ You can see that apart from the self-explanatory data, like event title, descrip
 - frontend/   The Streamlit app: interest picker, swipe deck,
               event detail and saved events.
 - docs/       Reference material the frontend's screen flow was built from.
+
+# How to run it
+
+You need two things running at once: the backend (FastAPI) and the
+frontend (Streamlit). Start the backend first -- the frontend has nothing
+to show without it.
+
+## 1. Set your OpenAI API key
+
+Create a `.env` file in the **repo root** (next to this README) with:
+
+```
+OPENAI_API_KEY=sk-...
+```
+
+Both the backend's semantic search and its LangChain agent (interest
+validation, query rewriting, match explanations) need this.
+
+## 2. Install dependencies
+
+One `pip install`, from the repo root, covers both the backend and the
+frontend -- `requirements.txt` here just combines
+`backend/requirements.txt` and `frontend/requirements.txt`:
+
+```bash
+pip install -r requirements.txt
+```
+
+(Using a virtual environment is recommended: `python -m venv .venv &&
+source .venv/bin/activate` before the install, on macOS/Linux.)
+
+## 3. Backend
+
+```bash
+cd backend
+uvicorn app.main:app --reload --port 8000
+```
+
+Check it came up: `curl http://localhost:8000/health` should return
+`{"status": "ok"}`. First startup takes a few seconds while it loads the
+embedding vector database.
+
+## 4. Frontend
+
+In a second terminal:
+
+```bash
+cd frontend
+streamlit run app.py
+```
+
+This opens the app in your browser (typically `http://localhost:8501`). If
+the backend isn't on `http://localhost:8000`, point the frontend at it
+with an env var before launching: `export BACKEND_URL=http://your-host:8000`.
+
+## 5. Use it
+
+Pick a few interest tags and/or describe what you're after, hit continue,
+and swipe through the 10 events it picks for you. Liked events land in
+"Saved" (via the tab bar in-app).

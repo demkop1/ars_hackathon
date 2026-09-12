@@ -13,6 +13,10 @@ from fastapi import FastAPI
 
 from app.routes import events, recommendations, tags
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
 app = FastAPI(
     title="Linz Event Recommender -- Mock Backend",
     description="In-memory mock API standing in for a real recommendation service.",
