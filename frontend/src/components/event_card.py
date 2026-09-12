@@ -24,6 +24,20 @@ def _highlight_badge(event: Event) -> str:
     return f'<span style="margin-right:6px;">{_badge("★ CURATOR PICK", "#FFF4E0", "#95590A")}</span>'
 
 
+def _match_badge(match_count: Optional[int]) -> str:
+    """Match strength as a 0-100 semantic-similarity score against the
+    user's selected tags + free-text interests (see backend/app/ranking.py)."""
+    if match_count is None:
+        return ""
+    if match_count >= 70:
+        bg, fg = "#E1F5EE", "#0F6E56"
+    elif match_count >= 40:
+        bg, fg = "#EEEDFE", "#534AB7"
+    else:
+        bg, fg = "#F1F1EF", "#5B5952"
+    return f'<span style="margin-right:6px;">{_badge(f"🎯 {match_count}% match", bg, fg)}</span>'
+
+
 def render_event_card(
     event: Event,
     *,
@@ -38,13 +52,6 @@ def render_event_card(
         desc = event.full_desc
     else:  # swipe
         desc = event.preview_text
-
-    match_html = ""
-    if match_count is not None and match_count > 0:
-        match_html = (
-            f'<div style="margin-top:8px;font-size:12px;color:#0F6E56;font-weight:600;">'
-            f"🎯 Matches your interests</div>"
-        )
 
     pad = "14px 16px" if variant == "compact" else "22px 24px"
     title_size = "16px" if variant == "compact" else "22px"
@@ -63,10 +70,9 @@ def render_event_card(
       <div style="font-size:13px;color:#7A7871;margin-top:2px;">📅 {event.time} &nbsp;·&nbsp; 📍 {location_line}</div>
     </div>
   </div>
-  <div style="margin-top:12px;">{_highlight_badge(event)}</div>
+  <div style="margin-top:12px;">{_highlight_badge(event)}{_match_badge(match_count)}</div>
   {f'<div style="margin-top:12px;font-size:14px;line-height:1.55;color:#3A3833;">{desc}</div>' if desc else ""}
   <div style="margin-top:12px;">{tag_pills_html([event.category])}</div>
-  {match_html}
   {f'<div style="margin-top:10px;font-size:12px;color:#9A978C;">🛎️ {event.location.services}</div>' if variant != "compact" and event.location.services else ""}
 </div>
 """

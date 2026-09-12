@@ -35,6 +35,7 @@ def generate_recommendations(
     selected_tags: set[str],
     prefs: Preferences,
     *,
+    interests_text: str = "",
     fail_mode: FailMode = "off",
     delay_seconds: float = 0.0,
 ) -> RecommendationResult:
@@ -51,6 +52,7 @@ def generate_recommendations(
 
     payload = {
         "tags": list(selected_tags),
+        "interests_text": interests_text,
         "highlights_only": prefs.highlights_only,
         "sort_mode": prefs.sort_mode,
     }

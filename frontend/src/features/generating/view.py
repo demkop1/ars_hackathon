@@ -22,12 +22,18 @@ def render(ss: AppState) -> None:
             highlights_only=ss.confirmed_highlights_only,
             sort_mode=ss.confirmed_sort_mode,
         )
-        with st.spinner(f"Matching events to your {len(selected)} interests…"):
+        spinner_text = (
+            f"Matching events to your {len(selected)} interests…"
+            if selected
+            else "Curating your deck…"
+        )
+        with st.spinner(spinner_text):
             try:
                 result = generate_recommendations(
                     load_events(),
                     set(selected),
                     prefs,
+                    interests_text=ss.confirmed_interests_text,
                     fail_mode=ss.sim_fail_mode,
                     delay_seconds=ss.sim_delay,
                 )

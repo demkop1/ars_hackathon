@@ -41,6 +41,7 @@ class TagOut(BaseModel):
 
 class RecommendationRequest(BaseModel):
     tags: list[str]  # selected `category` values
+    interests_text: str = ""  # free-text description of what the user wants, folded into the query
     highlights_only: bool = False
     sort_mode: Literal["best_match", "soonest"] = "best_match"
 

@@ -14,11 +14,10 @@ import streamlit as st
 
 from src.types.models import Screen, StageInfo, StageStatus
 
-MIN_TAGS_REQUIRED = 3
-
 _DEFAULTS = {
     "screen": "landing",
     "selected_tags": [],
+    "interests_text": "",
     "pref_highlights_only": False,
     "pref_sort_mode": "best_match",  # best_match | soonest
     # Snapshots of the above, taken the moment "Continue" is clicked on the
@@ -28,6 +27,7 @@ _DEFAULTS = {
     # the deck, sidebar summaries -- must read these stable copies instead of
     # the live `selected_tags`/`pref_*` widget keys.
     "confirmed_tags": [],
+    "confirmed_interests_text": "",
     "confirmed_highlights_only": False,
     "confirmed_sort_mode": "best_match",
     "gen_status": "not_started",  # not_started | in_progress | completed | failed
@@ -157,7 +157,7 @@ def compute_stage_statuses(ss: AppState) -> list[StageInfo]:
     if ss.screen == "landing":
         interests_status: StageStatus = "not_started"
     elif ss.screen == "interests":
-        interests_status = "requires_attention" if len(ss.selected_tags) < MIN_TAGS_REQUIRED else "in_progress"
+        interests_status = "in_progress"
     else:
         interests_status = "completed"
 
