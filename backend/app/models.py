@@ -49,3 +49,5 @@ class RecommendationRequest(BaseModel):
 class RecommendationResponse(BaseModel):
     ranked_event_ids: list[str]
     matched_tag_count: dict[str, int]
+    interests_valid: bool = True  # False if interests_text looked like junk/spam/injection, not real interests
+    match_explanations: dict[str, str] = {}  # event_id -> one-sentence "why this suits you"

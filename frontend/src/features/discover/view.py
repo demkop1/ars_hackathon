@@ -18,13 +18,21 @@ from src.hooks.state import (
 
 def render(ss: AppState) -> None:
     render_hub_tabs(ss)
+
+    if not ss.interests_text_valid:
+        st.info(
+            "The description you typed didn't look like genuine interests, so we based "
+            "this deck on your selected tags instead.",
+            icon="🤔",
+        )
+
     st.write("")
 
     if not ss.deck:
         clicked = render_empty_state(
             icon="🔍",
             title="No events match your filters",
-            message="Try widening your interests, or turn off 'Free only' / 'Family-friendly only' in preferences.",
+            message="Try widening your interests, or turn off 'Curated highlights only' in preferences.",
             action_label="Adjust interests",
             key="empty_deck_adjust",
         )
@@ -64,7 +72,12 @@ def render(ss: AppState) -> None:
 
     event_id = current_event_id(ss)
     event = events_by_id()[event_id]
-    render_event_card(event, variant="swipe", match_count=ss.match_counts.get(event_id))
+    render_event_card(
+        event,
+        variant="swipe",
+        match_count=ss.match_counts.get(event_id),
+        explanation=ss.match_explanations.get(event_id),
+    )
 
     st.write("")
     c_skip, c_undo, c_details, c_like = st.columns([1, 0.7, 1, 1])

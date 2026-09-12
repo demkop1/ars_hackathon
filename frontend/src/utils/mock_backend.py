@@ -9,7 +9,7 @@ from __future__ import annotations
 import os
 import random
 import time
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import Literal
 
 import requests
@@ -28,6 +28,8 @@ class RecommendationError(RuntimeError):
 class RecommendationResult:
     ranked_event_ids: list[str]
     matched_tag_count: dict[str, int]
+    interests_valid: bool = True
+    match_explanations: dict[str, str] = field(default_factory=dict)  # event_id -> "why this suits you" sentence
 
 
 def generate_recommendations(
@@ -61,13 +63,19 @@ def generate_recommendations(
         response = requests.post(
             f"{BACKEND_URL}/recommendations",
             json=payload,
-            timeout=8,
+            # /recommendations now makes up to 3 sequential LLM calls server-side
+            # (validate interests, rewrite query, batch-explain matches) -- 8s was
+            # fine for the old single-call version but is tight enough now to
+            # flake on ordinary latency variance, not just genuine backend hangs.
+            timeout=30,
         )
         response.raise_for_status()
         data = response.json()
         return RecommendationResult(
             ranked_event_ids=data["ranked_event_ids"],
             matched_tag_count=data["matched_tag_count"],
+            interests_valid=data.get("interests_valid", True),
+            match_explanations=data.get("match_explanations", {}),
         )
     except requests.Timeout as exc:
         raise RecommendationError(

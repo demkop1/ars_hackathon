@@ -11,5 +11,12 @@ router = APIRouter(prefix="/recommendations", tags=["recommendations"])
 
 @router.post("", response_model=RecommendationResponse)
 def create_recommendations(request: RecommendationRequest) -> RecommendationResponse:
-    ranked_event_ids, matched_tag_count = generate_recommendations(store.get_events(), request)
-    return RecommendationResponse(ranked_event_ids=ranked_event_ids, matched_tag_count=matched_tag_count)
+    ranked_event_ids, matched_tag_count, interests_valid, match_explanations = generate_recommendations(
+        store.get_events(), request
+    )
+    return RecommendationResponse(
+        ranked_event_ids=ranked_event_ids,
+        matched_tag_count=matched_tag_count,
+        interests_valid=interests_valid,
+        match_explanations=match_explanations,
+    )

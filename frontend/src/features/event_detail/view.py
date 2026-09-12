@@ -23,7 +23,12 @@ def render(ss: AppState) -> None:
     if st.button("← Back", key="detail_back_top"):
         close_detail(ss)
 
-    render_event_card(event, variant="detail", match_count=ss.match_counts.get(event_id))
+    render_event_card(
+        event,
+        variant="detail",
+        match_count=ss.match_counts.get(event_id),
+        explanation=ss.match_explanations.get(event_id),
+    )
 
     st.write("")
     if liked:

@@ -7,7 +7,7 @@ import numpy as np
 model = OpenAIEmbeddings()
 
 # 2. Access the JSON file
-print("Opening notion_export.json...")
+print("Opening prepared_cards.json...")
 with open("data/prepared_cards.json", "r", encoding="utf-8") as file:
     event_list = json.load(file)
 
@@ -41,7 +41,7 @@ for i, event in enumerate(event_list):
     final_database.append(card)
 
 # 6. Save your new, intelligent database
-with open("vector_database.json", "w", encoding="utf-8") as out_file:
+with open(r"data/vector_database.json", "w", encoding="utf-8") as out_file:
     json.dump(final_database, out_file, indent=2)
 
 print("Success! vector_database.json is ready for your swipe app backend.")

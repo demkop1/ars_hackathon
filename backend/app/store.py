@@ -29,10 +29,8 @@ _TAGS: list[dict] = [
     for name, count in Counter(e["category"] for e in _EVENTS).most_common()
 ]
 
-
 def get_events() -> list[dict]:
     return _EVENTS
-
 
 def get_event(event_id: str) -> Optional[dict]:
     return _EVENTS_BY_ID.get(event_id)

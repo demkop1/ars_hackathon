@@ -1,12 +1,12 @@
 """Recommendation ranking via semantic search.
 
 Each event in data/vector_database.json carries a precomputed embedding of
-its `embedding_input` text (see embedding_scripts/embedding_qwen.py). To
-rank, we embed the user's selected tags as *query* vectors (Qwen3-Embedding
-uses an asymmetric query/document scheme -- documents were embedded plain,
-queries need `prompt_name="query"` to get the matching retrieval behavior),
-blend them into one combined query vector, and rank candidates by cosine
-similarity to it.
+its title + full_desc (see embedding_scripts/embedding_openai.py), via
+OpenAI's embedding API. Queries are embedded with the same
+`OpenAIEmbeddings` model below -- query and document vectors have to come
+from the same embedding space for cosine similarity to mean anything, so
+if this ever changes, embedding_openai.py needs to change with it (and
+vector_database.json needs regenerating).
 """
 from __future__ import annotations
 
@@ -17,20 +17,21 @@ from pathlib import Path
 from typing import Optional
 
 import numpy as np
-from sentence_transformers import SentenceTransformer
-
 from langchain_openai import OpenAIEmbeddings
-from langchain_ollama import OllamaEmbeddings
-
-import dotenv
-dotenv.load_dotenv()
 
 from app.models import RecommendationRequest
 
+# NB: app.agent is imported lazily, inside generate_recommendations() below,
+# not here at module level. app/agent/__init__.py imports semantic_search
+# from this file, so an eager `import app.agent` here creates a circular
+# import: whichever of the two modules loads first finds the other only
+# half-initialized and fails with "cannot import name ... from partially
+# initialized module". Deferring this import to call time (when both
+# modules are guaranteed to already be fully loaded) breaks the cycle
+# without changing either module's public API.
+
 _VECTOR_DB_PATH = Path(__file__).parent.parent.parent / "data" / "vector_database.json"
 
-# print("Loading Qwen3-Embedding-0.6B model...")
-# model = SentenceTransformer("Qwen/Qwen3-Embedding-0.6B")
 model = OpenAIEmbeddings()
 
 def _load_vectors() -> dict[str, np.ndarray]:
@@ -78,19 +79,6 @@ def update_query(query_vector: np.ndarray, like_vector: np.ndarray, fac: float =
     new_query_vector = fac * query_vector + (1 - fac) * like_vector
     return new_query_vector / np.linalg.norm(new_query_vector)
 
-
-def _combined_query_vector(tag_vectors: np.ndarray) -> np.ndarray:
-    """Blend N equally-important tag embeddings into one query vector.
-
-    Applying `update_query` with fac=k/(k+1) at the k-th step is exactly the
-    incremental-mean formula, so this ends up as a true running average over
-    all N tags -- not just whichever tag happened to be encoded first.
-    """
-    query_vector = tag_vectors[0]
-    for k, vector in enumerate(tag_vectors[1:], start=1):
-        query_vector = update_query(query_vector, vector, fac=k / (k + 1))
-    return query_vector
-
 def _build_query_text(tag_texts: list[str], interests_text: str) -> str:
     """Combine selected categories and the user's free-text description into
     one query string. Both are optional inputs; at least one must be
@@ -102,7 +90,6 @@ def _build_query_text(tag_texts: list[str], interests_text: str) -> str:
         parts.append(interests_text.strip())
     return " ".join(parts)
 
-
 def semantic_search(query_text: str, events: list[dict], top_k: int = 5) -> list[dict]:
     """General-purpose semantic search: the top `top_k` events (full records,
     not just ids) ranked by cosine similarity to `query_text`.
@@ -110,45 +97,73 @@ def semantic_search(query_text: str, events: list[dict], top_k: int = 5) -> list
     `generate_recommendations` below ranks the *entire* candidate set for the
     swipe deck; this is the smaller-grained building block for anything that
     just wants "the top few events matching this text" -- e.g. a RAG tool for
-    app/agent.py's LLM agent.
+    app/agent's LLM agent.
     """
     candidates = [e for e in events if e["id"] in _VECTORS_BY_ID]
     if not candidates:
         return []
 
-    query_vector = np.asarray( model.embed_query(query_text, prompt_name="query") )
+    query_vector = np.asarray( model.embed_query(query_text) )
     matrix = np.stack([_VECTORS_BY_ID[c["id"]] for c in candidates])
     similarities = _compute_cos_similarity(matrix, query_vector)
 
     ranked = sorted(zip(candidates, similarities), key=lambda pair: -pair[1])
-    return [e for e, _ in ranked[:top_k]]
+    return [e for e, _ in ranked[:top_k]] if top_k else [e for e, _ in ranked]
 
+# How many events the swipe deck actually shows. The catalog has hundreds
+# of events; nobody's swiping through all of them, so the RAG step selects
+# only its best matches rather than handing back a fully ranked 383-long list.
+TOP_K_DISPLAY = 10
 
 def generate_recommendations(
     events: list[dict],
     request: RecommendationRequest,
-) -> tuple[list[str], dict[str, int]]:
+) -> tuple[list[str], dict[str, int], bool, dict[str, str]]:
+    """Returns (ranked_event_ids, match_scores, interests_text_was_valid, match_explanations).
+
+    The third value reflects whether request.interests_text (if any) looked
+    like a genuine interests description to the LLM -- see
+    app.agent.validate_interests. Invalid text is excluded from the query
+    (tags alone are used instead) rather than silently trusted, since it
+    otherwise flows straight into an LLM prompt below.
+
+    The fourth is a {event_id: one-sentence "why this matches you"} map for
+    the returned events, from app.agent.explain_matches.
+    """
     candidates = list(events)
     if request.highlights_only:
         candidates = [e for e in candidates if e.get("highlight") is True]
     candidates = [e for e in candidates if e["id"] in _VECTORS_BY_ID]
     if not candidates:
-        return [], {}
+        return [], {}, True, {}
 
-    query_text = _build_query_text(list(request.tags), request.interests_text) or "festival event"
-    query_vector = np.asarray(model.encode(query_text, prompt_name="query"))
+    from app import agent  # deferred -- see the note near the top of this file
+
+    validation = agent.validate_interests(request.interests_text)
+    interests_text = request.interests_text if validation.is_valid else ""
+
+    raw_query = _build_query_text(list(request.tags), interests_text) or "festival event"
+    generated_query = agent.ask(f"You are given with the following query: {raw_query}. \
+                                You have to generate a query suitable for query-documents matching based on semantic embeddigns. \
+                                For better understanding of the events you can also view into some of them by using the tool. \
+                                You have to output the answer only with no excess words. The query has to be short.")
+
+    query_vector = np.asarray( model.embed_query(generated_query) )
 
     matrix = np.stack([_VECTORS_BY_ID[c["id"]] for c in candidates])
     similarities = _compute_cos_similarity(matrix, query_vector)
 
-    scored = list(zip(candidates, similarities))
+    # Relevance picks the top-K candidate pool first; "soonest" only
+    # reorders *within* that pool -- otherwise it would show the 10
+    # chronologically earliest events regardless of whether they have
+    # anything to do with what the user asked for.
+    scored = sorted(zip(candidates, similarities), key=lambda pair: -pair[1])[:TOP_K_DISPLAY]
     if request.sort_mode == "soonest":
-        scored.sort(key=lambda pair: (_parse_sort_key(pair[0].get("time")), -pair[1]))
-    else:
-        scored.sort(key=lambda pair: -pair[1])
+        scored.sort(key=lambda pair: _parse_sort_key(pair[0].get("time")))
 
     ranked_event_ids = [e["id"] for e, _ in scored]
     # Similarity as a 0-100 "match" score -- still called matched_tag_count
     # on the wire (see RecommendationResponse) to keep the API stable.
     match_scores = {e["id"]: max(0, round(float(sim) * 100)) for e, sim in scored}
-    return ranked_event_ids, match_scores
+    match_explanations = agent.explain_matches(raw_query, [e for e, _ in scored])
+    return ranked_event_ids, match_scores, validation.is_valid, match_explanations

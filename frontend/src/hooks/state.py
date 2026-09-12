@@ -34,6 +34,8 @@ _DEFAULTS = {
     "gen_error": None,
     "deck": [],  # ranked list[event_id]
     "match_counts": {},  # event_id -> matched tag count, from the last generation
+    "match_explanations": {},  # event_id -> "why this suits you" sentence, from the last generation
+    "interests_text_valid": True,  # False if the agent flagged confirmed_interests_text as not genuine interests
     "deck_index": 0,
     "liked_ids": [],
     "skipped_ids": [],

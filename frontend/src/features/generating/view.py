@@ -44,6 +44,8 @@ def render(ss: AppState) -> None:
             else:
                 ss.deck = result.ranked_event_ids
                 ss.match_counts = result.matched_tag_count
+                ss.match_explanations = result.match_explanations
+                ss.interests_text_valid = result.interests_valid
                 ss.deck_index = 0
                 ss.gen_status = "completed"
                 go_to("discover")

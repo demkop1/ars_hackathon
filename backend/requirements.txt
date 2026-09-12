@@ -1,6 +1,5 @@
 fastapi>=0.110
 uvicorn[standard]>=0.29
 numpy>=1.26
-sentence-transformers>=3.0
 langchain>=1.0
 langchain-openai>=1.0
