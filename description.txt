@@ -1,15 +1,7 @@
 # Introduction
 
-In this project we build an Event Recommender app for the **Ars Electronica
-Festival 2026** ("Negotiating Humanity") in Linz, Austria.
-
-Users pick from a set of interest tags and/or describe what they're after
-in their own words -- both are optional, and either one (or neither) is
-enough to get a deck. The application then picks the **10 best-matching
-events** out of the festival's full catalog and presents them as a
-swipeable, Tinder-style deck: users swipe (or tap ✕ / ♥) through the 10
-cards one at a time, and anything they like is saved to a personal list
-they can revisit anytime.
+In this project we build an Event Recommender app for Linz.
+In this application, the users are asked to write their personal interests and pick other optional parameters (like tags, curated-only events and so forth) and the application will pick for them 10 best-matching events.
 
 # How the search works
 This application combines both metadata filtering and chain-based semantic search. First the application filters the data using the metadata specified by the user.
@@ -31,6 +23,7 @@ You can see that apart from the self-explanatory data, like event title, descrip
 - backend/    FastAPI service: semantic search over the event catalog,
               interest-text validation and query rewriting via a LangChain
               agent, and per-event match explanations.
-- frontend/   The Streamlit app: interest picker, swipe deck,
-              event detail and saved events.
+- frontend_1/ An experimental fork of frontend/ (mobile-style swipe deck
+              with real drag gestures, no sidebar) kept isolated so it's
+              trivially reversible.
 - docs/       Reference material the frontend's screen flow was built from.
